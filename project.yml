@@ -1,0 +1,64 @@
+name: TvMaze
+options:
+  bundleIdPrefix: br.com.fernandodelrio
+  deploymentTarget:
+    iOS: 9.3
+targets:
+  App:
+    type: application
+    platform: iOS
+    sources: [App]
+    dependencies:
+      - target: Core
+      - target: Cloud
+      - target: Database
+  Core:
+    type: framework
+    platform: iOS
+    sources: [Core]
+  Cloud:
+    type: framework
+    platform: iOS
+    sources: [Cloud]
+    dependencies:
+      - target: Core
+  Database:
+    type: framework
+    platform: iOS
+    sources: [Database]
+    dependencies:
+      - target: Core
+      - target: Cloud
+      - sdk: CoreData.framework
+  UnitTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: [UnitTests]
+    dependencies:
+      - target: App
+  UITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies:
+      - target: App
+      - target: Core
+      - target: Cloud
+schemes:
+  TvMaze Debug:
+    build:
+      targets:
+        App: all
+        Core: all
+        Cloud: all
+        Database: all
+        UnitTests: [test]
+        UITests: [test]
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - name: UnitTests
+        - name: UITests
+      gatherCoverageData: true

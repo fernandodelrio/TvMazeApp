@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>RetrieveShows</key>
+	<string>http://api.tvmaze.com/shows?page=%d</string>
+	<key>RetrieveShow</key>
+	<string>http://api.tvmaze.com/shows/%d</string>
+	<key>RetrieveShowsFromSearch</key>
+	<string>http://api.tvmaze.com/search/shows?q=%@</string>
+	<key>RetrieveEpisodes</key>
+	<string>http://api.tvmaze.com/shows/%d/episodes</string>
+	<key>RetrievePeople</key>
+	<string>http://api.tvmaze.com/search/people?q=%@</string>
+	<key>RetrieveShowsFromPerson</key>
+	<string>http://api.tvmaze.com/people/%d/castcredits</string>
+</dict>
+</plist>

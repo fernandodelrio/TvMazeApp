@@ -1,0 +1,30 @@
+platform :ios, '9.3'
+
+def commonPods
+  use_frameworks!
+  pod 'PromiseKit', '~> 6.8'
+end
+
+target 'App' do
+  commonPods
+
+  target 'UnitTests' do
+    inherit! :search_paths
+  end
+
+  target 'UITests' do
+    inherit! :search_paths
+  end
+end
+
+target 'Core' do
+  commonPods
+end
+
+target 'Cloud' do
+  commonPods
+end
+
+target 'Database' do
+  commonPods
+end
