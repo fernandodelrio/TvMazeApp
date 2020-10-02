@@ -8,6 +8,8 @@ targets:
     type: application
     platform: iOS
     sources: [App]
+    settings:
+      TARGET_NAME: "TvMaze"
     dependencies:
       - target: Core
       - target: Cloud

@@ -35,7 +35,7 @@ public class CoreDataFavoriteProvider: FavoriteProvider {
                 }
                 seal.fulfill(())
             }
-        }
+        }.then { self.save() }
     }
 
     public func retrieveFavorites() -> Promise<[Favorite]> {

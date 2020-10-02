@@ -29,8 +29,8 @@ public struct Person: Decodable {
             let values = try decoder.container(keyedBy: CodingKeys.self)
             id = try values.decode(Int.self, forKey: .id)
             name = try values.decode(String.self, forKey: .name)
-            let mediaImage = try values.decode(MediaImage.self, forKey: .image)
-            image = URL(string: mediaImage.mediumImage)
+            let mediaImage = try? values.decode(MediaImage.self, forKey: .image)
+            image = URL(string: mediaImage?.mediumImage ?? "")
         }
     }
 

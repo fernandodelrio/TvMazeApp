@@ -12,7 +12,7 @@ public extension UIView {
     func showLoading() {
         hideLoading()
         let activityIndicator = UIActivityIndicatorView()
-        activityIndicator.style = .whiteLarge
+        activityIndicator.style = .gray
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
@@ -21,11 +21,13 @@ public extension UIView {
 
         addSubview(activityIndicator)
         addConstraints([centerXConstraint, centerYConstraint])
+        layoutIfNeeded()
     }
 
     func hideLoading() {
         subviews
             .compactMap { $0 as? UIActivityIndicatorView }
             .forEach { $0.removeFromSuperview() }
+        layoutIfNeeded()
     }
 }
