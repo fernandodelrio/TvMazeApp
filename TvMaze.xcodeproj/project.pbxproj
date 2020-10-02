@@ -68,6 +68,12 @@
 		D6FA158BADF3C7C578AD965CE695691B /* Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4989968CA37B41AFF16DFFF678E931 /* Database.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D84A767825269C570044C6D6 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A767725269C570044C6D6 /* AsyncImageView.swift */; };
 		D84A767A2526C62B0044C6D6 /* AsyncImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A76792526C62B0044C6D6 /* AsyncImageViewModel.swift */; };
+		D84A767D2526EE800044C6D6 /* ShowDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A767C2526EE800044C6D6 /* ShowDetailViewController.swift */; };
+		D84A767F2526EF040044C6D6 /* ShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A767E2526EF040044C6D6 /* ShowDetailViewModel.swift */; };
+		D84A76812526EF2F0044C6D6 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A76802526EF2F0044C6D6 /* PersonDetailViewController.swift */; };
+		D84A76832526EF400044C6D6 /* PersonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A76822526EF400044C6D6 /* PersonDetailViewModel.swift */; };
+		D84A76862526EF750044C6D6 /* EpisodeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A76852526EF750044C6D6 /* EpisodeDetailViewController.swift */; };
+		D84A76882526EF870044C6D6 /* EpisodeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84A76872526EF870044C6D6 /* EpisodeDetailViewModel.swift */; };
 		DD17F5EAC9E6CD875ED4094E651DC6E1 /* NetworkEpisodeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70507CA35C6BB9093958D35CB8103CC1 /* NetworkEpisodeProvider.swift */; };
 		DDC5E371A6E6AE4E800F8A7A2BCF55E2 /* CoreDataFavoriteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2D4EFEB9A5F6ED7AAFAE894C46B9E /* CoreDataFavoriteProvider.swift */; };
 		E01DD04BF69B790AE569A406A793DA52 /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DE06E8D224FB1FD1B779C4022DCB721 /* Core.framework */; };
@@ -252,6 +258,12 @@
 		D6D99EB084EFA383A75AA51B9F7D9F52 /* FavoriteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteListViewController.swift; sourceTree = "<group>"; };
 		D84A767725269C570044C6D6 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		D84A76792526C62B0044C6D6 /* AsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModel.swift; sourceTree = "<group>"; };
+		D84A767C2526EE800044C6D6 /* ShowDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewController.swift; sourceTree = "<group>"; };
+		D84A767E2526EF040044C6D6 /* ShowDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailViewModel.swift; sourceTree = "<group>"; };
+		D84A76802526EF2F0044C6D6 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
+		D84A76822526EF400044C6D6 /* PersonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewModel.swift; sourceTree = "<group>"; };
+		D84A76852526EF750044C6D6 /* EpisodeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewController.swift; sourceTree = "<group>"; };
+		D84A76872526EF870044C6D6 /* EpisodeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeDetailViewModel.swift; sourceTree = "<group>"; };
 		DEAD1CDFE94336B294261653A0D39723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0F74213990285C356B4E05B5C6CCC98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E2A4A09A8B2FD6960DD9587C /* Pods_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -397,6 +409,8 @@
 			children = (
 				25B9904E2AD3AC4A7D68040BF4D7092E /* ShowListViewController.swift */,
 				EAE1FCAA9365C4CAE0929A113FBC888F /* ShowListViewModel.swift */,
+				D84A767C2526EE800044C6D6 /* ShowDetailViewController.swift */,
+				D84A767E2526EF040044C6D6 /* ShowDetailViewModel.swift */,
 			);
 			path = Shows;
 			sourceTree = "<group>";
@@ -550,10 +564,28 @@
 		D84A767625269C490044C6D6 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D84A767B2526EE570044C6D6 /* AsyncImageView */,
+				0C1CF693127F63789A05549109D25D88 /* MediaCell */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		D84A767B2526EE570044C6D6 /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
 				D84A767725269C570044C6D6 /* AsyncImageView.swift */,
 				D84A76792526C62B0044C6D6 /* AsyncImageViewModel.swift */,
 			);
-			path = Common;
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
+		D84A76842526EF620044C6D6 /* Episode */ = {
+			isa = PBXGroup;
+			children = (
+				D84A76852526EF750044C6D6 /* EpisodeDetailViewController.swift */,
+				D84A76872526EF870044C6D6 /* EpisodeDetailViewModel.swift */,
+			);
+			path = Episode;
 			sourceTree = "<group>";
 		};
 		DDF6F58B9C7A4D4EB2CE88ADD2D07E95 /* Supporting Files */ = {
@@ -600,6 +632,8 @@
 			children = (
 				D00A7EFC9990E0B854676C3DE2E0D7CA /* PeopleListViewController.swift */,
 				125DBC354EC5B2991785DFB06002B62F /* PeopleListViewModel.swift */,
+				D84A76802526EF2F0044C6D6 /* PersonDetailViewController.swift */,
+				D84A76822526EF400044C6D6 /* PersonDetailViewModel.swift */,
 			);
 			path = People;
 			sourceTree = "<group>";
@@ -607,9 +641,9 @@
 		F28CA426A4F59E9C56CA61EC965A5D48 /* User Interface */ = {
 			isa = PBXGroup;
 			children = (
+				D84A76842526EF620044C6D6 /* Episode */,
 				D84A767625269C490044C6D6 /* Common */,
 				F1237F08D139BFF14B644B26921634CF /* Favorites */,
-				0C1CF693127F63789A05549109D25D88 /* MediaCell */,
 				F15599C4CEC7C94C5074652BA00D18FE /* People */,
 				3C33EBA392521A3DEF048A4BCBFAE59E /* Shows */,
 			);
@@ -1030,11 +1064,17 @@
 				B2CB0338B1A5C75C32DBB52D04100DF9 /* FavoriteListViewController.swift in Sources */,
 				09F8187283AB5E96265C00E79EF02322 /* FavoriteListViewModel.swift in Sources */,
 				398A559F55F20CD5EF1A72F22609766C /* Injector.swift in Sources */,
+				D84A767F2526EF040044C6D6 /* ShowDetailViewModel.swift in Sources */,
+				D84A76882526EF870044C6D6 /* EpisodeDetailViewModel.swift in Sources */,
+				D84A76862526EF750044C6D6 /* EpisodeDetailViewController.swift in Sources */,
 				C00AA60D1852E33F2A03BD9E6B6B89FE /* MediaTableViewCell.swift in Sources */,
 				62758D6A9BDE32F728D6839B6CC31BA4 /* PeopleListViewController.swift in Sources */,
 				8CF46A0781F9E0E46C40EFE04F40BBEF /* PeopleListViewModel.swift in Sources */,
+				D84A76812526EF2F0044C6D6 /* PersonDetailViewController.swift in Sources */,
+				D84A767D2526EE800044C6D6 /* ShowDetailViewController.swift in Sources */,
 				B72998F09F7223DF9089A640AFF5534C /* ShowListViewController.swift in Sources */,
 				1D646621CFA09AB1263B7060B8F48D71 /* ShowListViewModel.swift in Sources */,
+				D84A76832526EF400044C6D6 /* PersonDetailViewModel.swift in Sources */,
 				D84A767A2526C62B0044C6D6 /* AsyncImageViewModel.swift in Sources */,
 				C1BC40BE46F8BB6313B748D9F4F1688A /* main.swift in Sources */,
 				D84A767825269C570044C6D6 /* AsyncImageView.swift in Sources */,
