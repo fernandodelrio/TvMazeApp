@@ -12,6 +12,7 @@ class PersonListViewModel {
     var onDataChange: (() -> Void)?
     var onLoadingChange: ((_ isLoading: Bool) -> Void)?
     var onSearchEmpty: ((_ isEmpty: Bool) -> Void)?
+    var selectedIndexForNavigation = 0
     var data: [Person] = []
 
     func load() {

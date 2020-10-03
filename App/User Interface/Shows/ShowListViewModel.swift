@@ -14,6 +14,7 @@ class ShowListViewModel {
     private var isSeaching = false
     private var isLoadingNewPages = false
     private var page = 0
+    private var isFirstAppear = true
     var selectedIndexForNavigation = 0
     var onDataChange: (() -> Void)?
     var onLoadingChange: ((_ isLoading: Bool) -> Void)?
@@ -37,6 +38,10 @@ class ShowListViewModel {
     }
 
     func appear() {
+        guard !isFirstAppear else {
+            isFirstAppear = false
+            return
+        }
         favoriteProvider
             .retrieveFavorites()
             .done { [weak self] favorites in

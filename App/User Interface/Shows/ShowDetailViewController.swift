@@ -73,6 +73,13 @@ class ShowDetailViewController: UIViewController {
         viewModel.appear()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? EpisodeDetailViewController
+        let indexPath = viewModel.selectedIndexPathForNavigation
+        let episode = viewModel.show?.episodesBySeason[indexPath.section]?[indexPath.row]
+        destination?.viewModel.episode = episode
+    }
+
     @IBAction func didTapFavoriteButton(_ sender: Any) {
         viewModel.favorite()
     }
@@ -98,6 +105,11 @@ extension ShowDetailViewController: UITableViewDelegate {
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         loadImages()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedIndexPathForNavigation = indexPath
+        performSegue(withIdentifier: "episodeListToDetailSegue", sender: nil)
     }
 }
 

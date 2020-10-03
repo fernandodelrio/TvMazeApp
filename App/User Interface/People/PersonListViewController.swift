@@ -41,6 +41,12 @@ class PersonListViewController: UIViewController {
         }
         viewModel.load()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? PersonDetailViewController
+        let person = viewModel.data[viewModel.selectedIndexForNavigation]
+        destination?.viewModel.person = person
+    }
     
     func loadImages() {
         tableView?.indexPathsForVisibleRows?.forEach {
@@ -59,6 +65,11 @@ extension PersonListViewController: UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         viewModel.searchTextDidChange(searchText)
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedIndexForNavigation = indexPath.row
+        performSegue(withIdentifier: "peopleListToDetailSegue", sender: nil)
     }
 }
 

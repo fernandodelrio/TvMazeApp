@@ -9,11 +9,13 @@ import Core
 import PromiseKit
 
 class ShowDetailViewModel {
+    private lazy var episodeProvider = Dependency.resolve(EpisodeProvider.self)
+    private lazy var showProvider = Dependency.resolve(ShowProvider.self)
+    private lazy var favoriteProvider = Dependency.resolve(FavoriteProvider.self)
+    private var isFirstAppear = true
     var show: Show?
     var isFavorited = false
-    lazy var episodeProvider = Dependency.resolve(EpisodeProvider.self)
-    lazy var showProvider = Dependency.resolve(ShowProvider.self)
-    lazy var favoriteProvider = Dependency.resolve(FavoriteProvider.self)
+    var selectedIndexPathForNavigation = IndexPath()
     var onDataChange: (() -> Void)?
     var onLoadingChange: ((_ isLoading: Bool) -> Void)?
     var onFavoriteChange: ((_ isFavorited: Bool) -> Void)?
@@ -33,6 +35,10 @@ class ShowDetailViewModel {
     }
 
     func appear() {
+        guard !isFirstAppear else {
+            isFirstAppear = false
+            return
+        }
         guard let show = show else {
             return
         }
