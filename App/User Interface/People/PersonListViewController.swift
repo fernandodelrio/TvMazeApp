@@ -1,5 +1,5 @@
 //
-//  PeopleListViewController.swift
+//  PersonListViewController.swift
 //  App
 //
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 9/30/20.
@@ -8,28 +8,50 @@
 
 import UIKit
 
-class PeopleListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-
-    var viewModel = PeopleListViewModel()
+class PersonListViewController: UIViewController {
+    @IBOutlet weak var tableView: UITableView?
+    var viewModel = PersonListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.onDataChange = { [weak self] in
-            self?.tableView.reloadData()
+            let dataCount = self?.viewModel.data.count ?? 0
+            if dataCount > 0 {
+                self?.tableView?.isHidden = false
+                self?.tableView?.reloadData()
+            } else {
+                self?.tableView?.isHidden = true
+            }
         }
+        viewModel.onLoadingChange = { [weak self] isLoading in
+            isLoading ? self?.view.showLoading() : self?.view.hideLoading()
+            let dataCount = self?.viewModel.data.count ?? 0
+            if !isLoading, dataCount == 0 {
+                self?.view.showMessageLabel("No results found.")
+            } else {
+                self?.view.hideMessageLabel()
+            }
+        }
+        viewModel.onSearchEmpty = { [weak self] isEmpty in
+            if isEmpty {
+                self?.view.showMessageLabel("Search for interesting people.")
+            } else {
+                self?.view.hideMessageLabel()
+            }
+        }
+        viewModel.load()
     }
     
     func loadImages() {
-        tableView.indexPathsForVisibleRows?.forEach {
+        tableView?.indexPathsForVisibleRows?.forEach {
             let person = viewModel.data[$0.row]
-            let cell = tableView.cellForRow(at: $0) as? MediaTableViewCell
+            let cell = tableView?.cellForRow(at: $0) as? MediaTableViewCell
             cell?.mediaImageView?.loadImage(person.image)
         }
     }
 }
 
-extension PeopleListViewController: UISearchBarDelegate {
+extension PersonListViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
         viewModel.searchTextDidEndEditing(searchBar.text ?? "")
@@ -40,7 +62,7 @@ extension PeopleListViewController: UISearchBarDelegate {
     }
 }
 
-extension PeopleListViewController: UITableViewDelegate {
+extension PersonListViewController: UITableViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         loadImages()
     }
@@ -50,7 +72,7 @@ extension PeopleListViewController: UITableViewDelegate {
     }
 }
 
-extension PeopleListViewController: UITableViewDataSource {
+extension PersonListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.data.count
     }

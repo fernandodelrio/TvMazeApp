@@ -29,7 +29,8 @@ public struct Episode: Decodable {
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         number = try values.decode(Int.self, forKey: .number)
-        season = try values.decode(Int.self, forKey: .season)
+        let seasonNumber = try values.decode(Int.self, forKey: .season)
+        season = max(seasonNumber-1, 0)
         let rawSummary = try values.decode(String?.self, forKey: .summary)
         summary = rawSummary?.htmlDecoded
         let mediaImage = try values.decode(MediaImage?.self, forKey: .image)

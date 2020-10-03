@@ -12,18 +12,27 @@ class ShowListViewModel {
     private lazy var showProvider = Dependency.resolve(ShowProvider.self)
     private lazy var favoriteProvider = Dependency.resolve(FavoriteProvider.self)
     private var isSeaching = false
+    private var isLoadingNewPages = false
     private var page = 0
-
+    var selectedIndexForNavigation = 0
     var onDataChange: (() -> Void)?
+    var onLoadingChange: ((_ isLoading: Bool) -> Void)?
+    var onLoadingNewPageChange: ((_ isLoading: Bool) -> Void)?
     var data: [(show: Show, isFavorited: Bool)] = []
     
     func load() {
         page += 1
+        onDataChange?()
+        triggerLoading(isLoading: true)
         let shows = showProvider.retrieveShows(page: page)
         let favorites = favoriteProvider.retrieveFavorites()
         when(fulfilled: shows, favorites)
             .done { [weak self] shows, favorites in
                 self?.reloadData(shows: shows, favorites: favorites)
+            }.recover { [weak self] error in
+                if (error as? NetworkError) == .lastPageAchieved {
+                    self?.triggerLoading(isLoading: false)
+                }
             }.cauterize()
     }
 
@@ -46,9 +55,10 @@ class ShowListViewModel {
     }
 
     func loadNewPages() {
-        guard !isSeaching else {
+        guard !isSeaching, !isLoadingNewPages else {
             return
         }
+        isLoadingNewPages = true
         load()
     }
 
@@ -69,7 +79,6 @@ class ShowListViewModel {
             isSeaching = false
             page = 0
             data = []
-            onDataChange?()
             load()
         }
     }
@@ -80,12 +89,22 @@ class ShowListViewModel {
             page = 0
             data = []
             onDataChange?()
+            triggerLoading(isLoading: true)
             let shows = showProvider.retrieveShows(searchTerm: searchTerm)
             let favorites = favoriteProvider.retrieveFavorites()
             when(fulfilled: shows, favorites)
                 .done { [weak self] shows, favorites in
                     self?.reloadData(shows: shows, favorites: favorites)
                 }.cauterize()
+        }
+    }
+
+    private func triggerLoading(isLoading: Bool) {
+        if isSeaching || page <= 1 {
+            onLoadingChange?(isLoading)
+            onLoadingNewPageChange?(false)
+        } else {
+            onLoadingNewPageChange?(isLoading)
         }
     }
 
@@ -99,5 +118,7 @@ class ShowListViewModel {
         }
         data.append(contentsOf: newData)
         onDataChange?()
+        triggerLoading(isLoading: false)
+        isLoadingNewPages = false
     }
 }

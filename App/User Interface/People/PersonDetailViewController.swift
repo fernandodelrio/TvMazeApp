@@ -8,9 +8,9 @@
 import UIKit
 
 class PersonDetailViewController: UIViewController {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var mediaImageView: AsyncImageView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var nameLabel: UILabel?
+    @IBOutlet weak var mediaImageView: AsyncImageView?
+    @IBOutlet weak var tableView: UITableView?
 }
 
 extension PersonDetailViewController: UITableViewDelegate {

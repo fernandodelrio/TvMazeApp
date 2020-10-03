@@ -8,14 +8,23 @@
 import UIKit
 
 class FavoriteListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView?
 
     var viewModel = FavoriteListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.onDataChange = { [weak self] in
-            self?.tableView.reloadData()
+            self?.reloadTableView()
+        }
+        viewModel.onDataDelete = { [weak self] indexPath in
+            self?.tableView?.deleteRows(at: [indexPath], with: .left)
+            self?.reloadTableView()
+            self?.updateMessageLabel(isLoading: false)
+        }
+        viewModel.onLoadingChange = { [weak self] isLoading in
+            isLoading ? self?.view.showLoading() : self?.view.hideLoading()
+            self?.updateMessageLabel(isLoading: isLoading)
         }
     }
 
@@ -24,11 +33,38 @@ class FavoriteListViewController: UIViewController {
         viewModel.appear()
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? ShowDetailViewController
+        let show = viewModel.data[viewModel.selectedIndexForNavigation].show
+        let isFavorited = viewModel.data[viewModel.selectedIndexForNavigation].isFavorited
+        destination?.viewModel.show = show
+        destination?.viewModel.isFavorited = isFavorited
+    }
+
     func loadImages() {
-        tableView.indexPathsForVisibleRows?.forEach {
+        tableView?.indexPathsForVisibleRows?.forEach {
             let show = viewModel.data[$0.row].show
-            let cell = tableView.cellForRow(at: $0) as? MediaTableViewCell
+            let cell = tableView?.cellForRow(at: $0) as? MediaTableViewCell
             cell?.mediaImageView?.loadImage(show.poster)
+        }
+    }
+
+    func reloadTableView() {
+        let dataCount = viewModel.data.count
+        if dataCount > 0 {
+            tableView?.isHidden = false
+            tableView?.reloadData()
+        } else {
+            tableView?.isHidden = true
+        }
+    }
+
+    func updateMessageLabel(isLoading: Bool) {
+        let dataCount = viewModel.data.count
+        if !isLoading, dataCount == 0 {
+            view.showMessageLabel("No favorites to show.")
+        } else {
+            view.hideMessageLabel()
         }
     }
 }
@@ -40,6 +76,11 @@ extension FavoriteListViewController: UITableViewDelegate {
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         loadImages()
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedIndexForNavigation = indexPath.row
+        performSegue(withIdentifier: "favoriteListToDetailSegue", sender: nil)
     }
 }
 
@@ -62,8 +103,6 @@ extension FavoriteListViewController: UITableViewDataSource {
         cell?.descriptionLabel?.text = show.name
         cell?.onFavoriteTap = { [weak self] in
             self?.viewModel.unfavorite(index: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            tableView.reloadData()
         }
         return cell ?? UITableViewCell()
     }

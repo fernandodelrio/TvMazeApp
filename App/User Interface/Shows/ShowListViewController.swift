@@ -8,14 +8,32 @@
 import UIKit
 
 class ShowListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var tableView: UITableView?
     lazy var viewModel = ShowListViewModel()
-
+    @IBOutlet weak var bottomLoadingView: UIView?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.onDataChange = { [weak self] in
-            self?.tableView.reloadData()
+            let dataCount = self?.viewModel.data.count ?? 0
+            if dataCount > 0 {
+                self?.tableView?.isHidden = false
+                self?.tableView?.reloadData()
+            } else {
+                self?.tableView?.isHidden = true
+            }
+        }
+        viewModel.onLoadingChange = { [weak self] isLoading in
+            isLoading ? self?.view.showLoading() : self?.view.hideLoading()
+            let dataCount = self?.viewModel.data.count ?? 0
+            if !isLoading, dataCount == 0 {
+                self?.view.showMessageLabel("No results found.")
+            } else {
+                self?.view.hideMessageLabel()
+            }
+        }
+        viewModel.onLoadingNewPageChange = { [weak self] isLoading in
+            self?.bottomLoadingView?.isHidden = !isLoading
         }
         viewModel.load()
     }
@@ -24,11 +42,19 @@ class ShowListViewController: UIViewController {
         super.viewDidAppear(animated)
         viewModel.appear()
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? ShowDetailViewController
+        let show = viewModel.data[viewModel.selectedIndexForNavigation].show
+        let isFavorited = viewModel.data[viewModel.selectedIndexForNavigation].isFavorited
+        destination?.viewModel.show = show
+        destination?.viewModel.isFavorited = isFavorited
+    }
     
     func loadImages() {
-        tableView.indexPathsForVisibleRows?.forEach {
+        tableView?.indexPathsForVisibleRows?.forEach {
             let show = viewModel.data[$0.row].show
-            let cell = tableView.cellForRow(at: $0) as? MediaTableViewCell
+            let cell = tableView?.cellForRow(at: $0) as? MediaTableViewCell
             cell?.mediaImageView?.loadImage(show.poster)
         }
     }
@@ -58,6 +84,11 @@ extension ShowListViewController: UITableViewDelegate {
         if indexPath.row + 1 == viewModel.data.count {
             viewModel.loadNewPages()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedIndexForNavigation = indexPath.row
+        performSegue(withIdentifier: "showListToDetailSegue", sender: nil)
     }
 }
 
