@@ -13,6 +13,7 @@ public class NetworkShowProvider: ShowProvider {
     lazy var episodeProvider = Dependency.resolve(EpisodeProvider.self)
     lazy var requestProvider = Dependency.resolve(RequestProvider.self)
     lazy var decoder = JSONDecoder()
+    static let queue = DispatchQueue(label: "NetworkShowProvider")
 
     public init() {
     }
@@ -20,7 +21,7 @@ public class NetworkShowProvider: ShowProvider {
     public func retrieveShows(page: Int) -> Promise<[Show]> {
         requestProvider
             .request(endpoint: .retrieveShows, with: page)
-            .map { [weak self] data, statusCode -> [Show] in
+            .map(on: Self.queue) { [weak self] data, statusCode -> [Show] in
                 if statusCode == .notFound {
                     throw NetworkError.lastPageAchieved
                 }
@@ -34,7 +35,7 @@ public class NetworkShowProvider: ShowProvider {
     public func retrieveShows(searchTerm: String) -> Promise<[Show]> {
         requestProvider
             .request(endpoint: .retrieveShowsFromSearch, with: searchTerm.urlEncoded)
-            .map { [weak self] data, statusCode -> [Show] in
+            .map(on: Self.queue) { [weak self] data, statusCode -> [Show] in
                 guard statusCode != .notFound else {
                     throw NetworkError.dataNotFound
                 }
@@ -57,7 +58,7 @@ public class NetworkShowProvider: ShowProvider {
     public func retrieveShow(id: Int) -> Promise<Show> {
         requestProvider
             .request(endpoint: .retrieveShow, with: id)
-            .map { [weak self] data, statusCode-> Show in
+            .map(on: Self.queue) { [weak self] data, statusCode-> Show in
                 guard statusCode != .notFound else {
                     throw NetworkError.dataNotFound
                 }
@@ -72,7 +73,7 @@ public class NetworkShowProvider: ShowProvider {
         var show = show
         let episodes = episodeProvider.retrieveEpisodes(showId: show.id)
         return episodes
-            .map { episodes -> Show in
+            .map(on: Self.queue) { episodes -> Show in
                 show.episodesBySeason = [:]
                 let seasons = Set(episodes.map { $0.season })
                 seasons.forEach {

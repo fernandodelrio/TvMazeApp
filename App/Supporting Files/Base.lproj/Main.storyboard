@@ -27,12 +27,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="48a-rS-ypw" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="48a-rS-ypw" customClass="AsyncImageView" customModule="TvMaze">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="VJX-Sr-WhP"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aja-Qo-nhz">
                                                     <rect key="frame" x="346" y="16" width="32" height="32"/>
                                                     <constraints>
@@ -105,13 +105,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-BD-KhF" customClass="AsyncImageView" customModule="TvMaze">
+                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-BD-KhF" customClass="AsyncImageView" customModule="TvMaze">
                                 <rect key="frame" x="16" y="104" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="9kB-pM-1FI"/>
                                     <constraint firstAttribute="width" constant="90" id="jUD-X9-a9A"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PhA-P8-E4f">
                                 <rect key="frame" x="122" y="104" width="276" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -129,12 +129,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7Q-cd-ctZ" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7Q-cd-ctZ" customClass="AsyncImageView" customModule="TvMaze">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="3Xn-Bo-55R"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6MZ-VK-wVT">
                                                     <rect key="frame" x="346" y="16" width="32" height="32"/>
                                                     <constraints>
@@ -219,15 +219,15 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNo-k0-4Ji">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Su9-od-NIg" customClass="AsyncImageView" customModule="TvMaze">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Su9-od-NIg" customClass="AsyncImageView" customModule="TvMaze">
                                                 <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="1Cp-J0-Tdg"/>
                                                     <constraint firstAttribute="width" constant="90" id="6fd-f6-cC6"/>
                                                 </constraints>
-                                            </imageView>
+                                            </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyy-1M-Kcq">
                                                 <rect key="frame" x="122" y="16" width="276" height="24"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -235,14 +235,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIC-Ab-hqL">
-                                                <rect key="frame" x="16" y="122" width="382" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="16" y="122" width="382" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FL-r5-3Ox">
-                                                <rect key="frame" x="16" y="148" width="382" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <rect key="frame" x="16" y="154" width="382" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -321,12 +321,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="USE-iy-stB" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="USE-iy-stB" customClass="AsyncImageView" customModule="TvMaze">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="Gez-1f-kVc"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CGk-jU-Ros">
                                                     <rect key="frame" x="346" y="16" width="32" height="32"/>
                                                     <constraints>
@@ -437,12 +437,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xp-cH-RKd" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xp-cH-RKd" customClass="AsyncImageView" customModule="TvMaze">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="Qgw-eO-CZx"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5Q-OD-N3K">
                                                     <rect key="frame" x="122" y="16" width="256" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -491,7 +491,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wJO-0B-W2q"/>
                     </view>
-                    <navigationItem key="navigationItem" title="People" largeTitleDisplayMode="always" id="fXW-3b-vJ7"/>
+                    <navigationItem key="navigationItem" title="People" id="fXW-3b-vJ7"/>
                     <connections>
                         <outlet property="tableView" destination="uk0-jk-X01" id="aNc-OJ-1d7"/>
                         <segue destination="L4T-hW-CBU" kind="show" identifier="peopleListToDetailSegue" id="41w-iK-Fhx"/>
@@ -501,10 +501,10 @@
             </objects>
             <point key="canvasLocation" x="-923" y="1440"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Main Tab View Controller-->
         <scene sceneID="RdY-0r-H5r">
             <objects>
-                <tabBarController id="fTd-mC-XFg" sceneMemberID="viewController">
+                <tabBarController id="fTd-mC-XFg" customClass="MainTabViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SjO-Me-uvy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -514,6 +514,8 @@
                         <segue destination="h4w-g7-3na" kind="relationship" relationship="viewControllers" id="Ujt-4q-v8I"/>
                         <segue destination="Xfi-5d-ONm" kind="relationship" relationship="viewControllers" id="4AO-l6-NOZ"/>
                         <segue destination="KXv-ZI-Poz" kind="relationship" relationship="viewControllers" id="XFw-9B-0Dz"/>
+                        <segue destination="l1t-XS-W0a" kind="relationship" relationship="viewControllers" id="kbE-Xr-RVD"/>
+                        <segue destination="gvn-SA-847" kind="presentation" identifier="mainTabToPinSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="0Wa-VY-dh9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fus-ps-GMq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -558,6 +560,141 @@
             </objects>
             <point key="canvasLocation" x="-14" y="528"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="gGX-le-TYt">
+            <objects>
+                <viewController id="vne-ba-ykX" customClass="SettingsViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h4X-hR-Nwp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4XW-cV-j3u">
+                                <rect key="frame" x="16" y="104" width="382" height="78"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-eO-rbf">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Pin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiO-oP-Fd4">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="A9E-l6-bem">
+                                                <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="enablePinValueChanged:" destination="vne-ba-ykX" eventType="valueChanged" id="N6Q-T7-AZS"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Dwz-il-OIa">
+                                        <rect key="frame" x="0.0" y="47" width="382" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1V-GH-Shl">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="l6Q-ey-d3l">
+                                                <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="enableBiometricsValueChanged:" destination="vne-ba-ykX" eventType="valueChanged" id="Kg4-ZC-Clb"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="4XW-cV-j3u" firstAttribute="top" secondItem="Ia4-G3-OcO" secondAttribute="top" constant="16" id="OQw-uq-U9b"/>
+                            <constraint firstItem="4XW-cV-j3u" firstAttribute="leading" secondItem="Ia4-G3-OcO" secondAttribute="leading" constant="16" id="eip-MA-0Oe"/>
+                            <constraint firstItem="Ia4-G3-OcO" firstAttribute="trailing" secondItem="4XW-cV-j3u" secondAttribute="trailing" constant="16" id="iUR-uI-TNG"/>
+                            <constraint firstItem="Ia4-G3-OcO" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4XW-cV-j3u" secondAttribute="bottom" constant="16" id="uvX-mQ-b86"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ia4-G3-OcO"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="iuk-4V-pdy"/>
+                    <connections>
+                        <outlet property="enableBiometricsLabel" destination="a1V-GH-Shl" id="Rhd-4a-rUw"/>
+                        <outlet property="enableBiometricsStackView" destination="Dwz-il-OIa" id="Byk-fx-Xq7"/>
+                        <outlet property="enableBiometricsSwitch" destination="l6Q-ey-d3l" id="wLA-CC-i05"/>
+                        <outlet property="enablePinStackView" destination="Hyh-eO-rbf" id="AHW-Lh-5I4"/>
+                        <outlet property="enablePinSwitch" destination="A9E-l6-bem" id="Pee-wW-SDk"/>
+                        <segue destination="gvn-SA-847" kind="presentation" identifier="settingsToPinSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="DfT-t4-rhj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cEj-bo-5Rh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1009" y="1440"/>
+        </scene>
+        <!--Enter Pin View Controller-->
+        <scene sceneID="9xn-Kd-6ie">
+            <objects>
+                <viewController id="gvn-SA-847" customClass="EnterPinViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="20y-GN-ZyK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vU2-GO-0rc">
+                                <rect key="frame" x="95" y="76" width="224" height="82"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the PIN to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVs-uj-5Rm">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dUM-vU-Jre">
+                                        <rect key="frame" x="0.0" y="32" width="224" height="50"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zu-cr-QP2" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lws-va-CbU" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                <rect key="frame" x="58" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUS-cP-bwz" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                <rect key="frame" x="116" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-Kn-SUe" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                <rect key="frame" x="174" y="0.0" width="50" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Tw6-1M-CEU"/>
+                                                    <constraint firstAttribute="width" constant="50" id="z1o-mJ-HaJ"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="vU2-GO-0rc" firstAttribute="centerX" secondItem="20y-GN-ZyK" secondAttribute="centerX" id="w5o-nd-qrg"/>
+                            <constraint firstItem="vU2-GO-0rc" firstAttribute="top" secondItem="MeN-jI-bxy" secondAttribute="top" constant="32" id="xQV-Vp-gaY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MeN-jI-bxy"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kXn-Wo-9lH"/>
+                    <connections>
+                        <outlet property="enterPin1View" destination="9Zu-cr-QP2" id="WBX-L2-P6j"/>
+                        <outlet property="enterPin2View" destination="lws-va-CbU" id="Sgt-Ib-eeE"/>
+                        <outlet property="enterPin3View" destination="xUS-cP-bwz" id="ZvI-LP-EvN"/>
+                        <outlet property="enterPin4View" destination="OBA-Kn-SUe" id="4uJ-Y3-ypb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Un5-ky-Par" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2233" y="1440"/>
+        </scene>
         <!--Shows-->
         <scene sceneID="nPg-0U-E9A">
             <objects>
@@ -585,13 +722,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-Hi-hqW" customClass="AsyncImageView" customModule="TvMaze">
+                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-Hi-hqW" customClass="AsyncImageView" customModule="TvMaze">
                                 <rect key="frame" x="16" y="104" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="hHh-BX-trc"/>
                                     <constraint firstAttribute="width" constant="90" id="pBG-tT-e5t"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBG-tw-8Ml">
                                 <rect key="frame" x="122" y="104" width="228" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -623,7 +760,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FLO-6z-icZ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLO-6z-icZ">
                                 <rect key="frame" x="16" y="266" width="382" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -645,12 +782,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-fj-c92" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-fj-c92" customClass="AsyncImageView" customModule="TvMaze">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="D69-Ze-q1c"/>
                                                     </constraints>
-                                                </imageView>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hv-Bm-eGq">
                                                     <rect key="frame" x="122" y="16" width="256" height="24"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -722,13 +859,34 @@
             </objects>
             <point key="canvasLocation" x="-1875.3623188405797" y="2276.7857142857142"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="tZw-yT-Odf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l1t-XS-W0a" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="GAy-yG-LGm"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fgJ-1X-o1G">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vne-ba-ykX" kind="relationship" relationship="rootViewController" id="H1Y-Xk-CRe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ziv-7a-tZR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1008.6956521739131" y="527.67857142857144"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="settings" width="30" height="30"/>
         <image name="star" width="32" height="31"/>
         <image name="user" width="32" height="32"/>
         <image name="video-player" width="32" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1aC-1t-Ggg"/>
+        <segue reference="e2x-je-JHo"/>
+        <segue reference="DfT-t4-rhj"/>
     </inferredMetricsTieBreakers>
 </document>

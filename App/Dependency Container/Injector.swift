@@ -6,6 +6,7 @@
 //  Copyright © 2020 Fernando Henrique Bonfim Moreno Del Rio. All rights reserved.
 //
 
+import Auth
 import Core
 import Cloud
 import Database
@@ -43,6 +44,14 @@ class Injector {
         
         Dependency.register(SecretProvider.self) {
             KeychainSecretProvider()
+        }
+
+        Dependency.register(AuthProvider.self) {
+            BiometricsAuthProvider()
+        }
+
+        Dependency.register(SettingsProvider.self) {
+            CoreDataSettingsProvider()
         }
     }
 }

@@ -8,6 +8,6 @@
 import PromiseKit
 
 public protocol AuthProvider {
-    var isEnabled: Bool { get }
+    var authType: AuthType { get }
     func authenticate() -> Promise<Bool>
 }

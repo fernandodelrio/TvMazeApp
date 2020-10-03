@@ -10,17 +10,29 @@ import CoreData
 import PromiseKit
 
 public class CoreDataFavoriteProvider: FavoriteProvider {
-    let context = CoreDataProvider.context
-    let save = CoreDataProvider.save
-    lazy var showProvider = Dependency.resolve(ShowProvider.self)
+    private let context = CoreDataProvider.context
+    private lazy var showProvider = Dependency.resolve(ShowProvider.self)
+    public var onDataChange: ((_ favorites: [Favorite]) -> Void)?
 
     public init() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(contextObjectsDidChange(_:)),
+                                               name: Notification.Name.NSManagedObjectContextObjectsDidChange,
+                                               object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 
     public func save(_ favorite: Favorite) -> Promise<Void> {
-        let entity = NSEntityDescription.insertNewObject(forEntityName: "FavoriteEntity", into: context)
-        entity.setValue(Int32(favorite.show.id), forKey: "showId")
-        return save()
+        Promise { seal in
+            context.perform {
+                let entity = NSEntityDescription.insertNewObject(forEntityName: "FavoriteEntity", into: self.context)
+                entity.setValue(Int32(favorite.show.id), forKey: "showId")
+                seal.fulfill(())
+            }
+        }
     }
 
     public func delete(_ favorite: Favorite) -> Promise<Void> {
@@ -35,7 +47,7 @@ public class CoreDataFavoriteProvider: FavoriteProvider {
                 }
                 seal.fulfill(())
             }
-        }.then { self.save() }
+        }
     }
 
     public func retrieveFavorites() -> Promise<[Favorite]> {
@@ -53,5 +65,12 @@ public class CoreDataFavoriteProvider: FavoriteProvider {
                     }.cauterize()
             }
         }
+    }
+
+    @objc private func contextObjectsDidChange(_ notification: Notification) {
+        retrieveFavorites()
+            .done { [weak self] favorites in
+                self?.onDataChange?(favorites)
+            }.cauterize()
     }
 }

@@ -93,8 +93,21 @@
 		D3CA1581ADB856D6977366A13CEE0FCB /* SecretProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B945AD892FBA3C82E36549A562C9CC /* SecretProvider.swift */; };
 		D5D054F42CDB463E9A3C59721AC55F56 /* Cloud.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1AAA81F0D8D6E2487E5FAC22D55F140 /* Cloud.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D6FA158BADF3C7C578AD965CE695691B /* Database.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A4989968CA37B41AFF16DFFF678E931 /* Database.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D8390A2325285C5B0025C699 /* TouchIdAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A2225285C5B0025C699 /* TouchIdAuthProvider.swift */; };
+		D8390A2325285C5B0025C699 /* BiometricsAuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A2225285C5B0025C699 /* BiometricsAuthProvider.swift */; };
 		D8390A2525285E790025C699 /* AuthProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A2425285E790025C699 /* AuthProvider.swift */; };
+		D8390A282528B3470025C699 /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A272528B3470025C699 /* MainTabViewController.swift */; };
+		D8390A2A2528B5940025C699 /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A292528B5940025C699 /* MainTabViewModel.swift */; };
+		D8390A2D2528C05C0025C699 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A2C2528C05C0025C699 /* SettingsViewController.swift */; };
+		D8390A2F2528C2000025C699 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A2E2528C2000025C699 /* SettingsViewModel.swift */; };
+		D8390A312528C5D90025C699 /* AuthType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A302528C5D90025C699 /* AuthType.swift */; };
+		D8390A332528D7B20025C699 /* CoreDataSettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A322528D7B20025C699 /* CoreDataSettingsProvider.swift */; };
+		D8390A352528D7E50025C699 /* SettingsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A342528D7E50025C699 /* SettingsProvider.swift */; };
+		D8390A372528D8010025C699 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A362528D8010025C699 /* Settings.swift */; };
+		D8390A392528E61C0025C699 /* EnterPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A382528E61C0025C699 /* EnterPinViewController.swift */; };
+		D8390A3B2528E6390025C699 /* EnterPinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A3A2528E6390025C699 /* EnterPinViewModel.swift */; };
+		D8390A3E2528FAEC0025C699 /* EnterPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A3D2528FAEC0025C699 /* EnterPinView.swift */; };
+		D8390A402528FB270025C699 /* EnterPinTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A3F2528FB270025C699 /* EnterPinTextFieldViewModel.swift */; };
+		D8390A422528FFB60025C699 /* EnterPinTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A412528FFB60025C699 /* EnterPinTextFieldView.swift */; };
 		DD17F5EAC9E6CD875ED4094E651DC6E1 /* NetworkEpisodeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70507CA35C6BB9093958D35CB8103CC1 /* NetworkEpisodeProvider.swift */; };
 		DDC5E371A6E6AE4E800F8A7A2BCF55E2 /* CoreDataFavoriteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2D4EFEB9A5F6ED7AAFAE894C46B9E /* CoreDataFavoriteProvider.swift */; };
 		DEE159894D6EBA2A12B58ADD0667FD80 /* ShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B551F85A1E16DDAA4ACCF6F4FE7DC56 /* ShowDetailViewModel.swift */; };
@@ -360,8 +373,21 @@
 		D001D5777C4CCDAA1A77142D865D6A71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0D2E0D3FF4A48B1D67ECFA4 /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
 		D2D4BF7D46065DB40BB163538A25B0B7 /* AsyncImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageViewModel.swift; sourceTree = "<group>"; };
-		D8390A2225285C5B0025C699 /* TouchIdAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdAuthProvider.swift; sourceTree = "<group>"; };
+		D8390A2225285C5B0025C699 /* BiometricsAuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsAuthProvider.swift; sourceTree = "<group>"; };
 		D8390A2425285E790025C699 /* AuthProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthProvider.swift; sourceTree = "<group>"; };
+		D8390A272528B3470025C699 /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		D8390A292528B5940025C699 /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		D8390A2C2528C05C0025C699 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D8390A2E2528C2000025C699 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		D8390A302528C5D90025C699 /* AuthType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthType.swift; sourceTree = "<group>"; };
+		D8390A322528D7B20025C699 /* CoreDataSettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSettingsProvider.swift; sourceTree = "<group>"; };
+		D8390A342528D7E50025C699 /* SettingsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProvider.swift; sourceTree = "<group>"; };
+		D8390A362528D8010025C699 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		D8390A382528E61C0025C699 /* EnterPinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinViewController.swift; sourceTree = "<group>"; };
+		D8390A3A2528E6390025C699 /* EnterPinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinViewModel.swift; sourceTree = "<group>"; };
+		D8390A3D2528FAEC0025C699 /* EnterPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinView.swift; sourceTree = "<group>"; };
+		D8390A3F2528FB270025C699 /* EnterPinTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinTextFieldViewModel.swift; sourceTree = "<group>"; };
+		D8390A412528FFB60025C699 /* EnterPinTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinTextFieldView.swift; sourceTree = "<group>"; };
 		DEAD1CDFE94336B294261653A0D39723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0F74213990285C356B4E05B5C6CCC98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E46360840748C033FED0E1ED9123B8A3 /* PersonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +522,7 @@
 				10506515C92C1AF5BA62D7C41D4E9728 /* ScreenType.swift */,
 				06DCA80B91ED3FD1B2DA58902E01B14B /* SecretKey.swift */,
 				F0CB220C554E9E92C011727C6588B90B /* StatusCode.swift */,
+				D8390A302528C5D90025C699 /* AuthType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -523,6 +550,7 @@
 				27B945AD892FBA3C82E36549A562C9CC /* SecretProvider.swift */,
 				7C8EA4CB46D38C9A1A8754A6568D8415 /* ShowProvider.swift */,
 				D8390A2425285E790025C699 /* AuthProvider.swift */,
+				D8390A342528D7E50025C699 /* SettingsProvider.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -553,6 +581,7 @@
 				280C9AAF6A975D68EFB25FC1C86865AC /* Favorites */,
 				16F747CE1675278EDA5008B9C0507B0C /* People */,
 				B31C21717F89CD5EFA6FBC94E1398F28 /* Shows */,
+				D8390A2B2528C0140025C699 /* Settings */,
 			);
 			path = "User Interface";
 			sourceTree = "<group>";
@@ -561,7 +590,7 @@
 			isa = PBXGroup;
 			children = (
 				9116ED9D778B81507E9706E64462C422 /* Supporting Files */,
-				D8390A2225285C5B0025C699 /* TouchIdAuthProvider.swift */,
+				D8390A2225285C5B0025C699 /* BiometricsAuthProvider.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -652,6 +681,7 @@
 			isa = PBXGroup;
 			children = (
 				49C2D4EFEB9A5F6ED7AAFAE894C46B9E /* CoreDataFavoriteProvider.swift */,
+				D8390A322528D7B20025C699 /* CoreDataSettingsProvider.swift */,
 				9F802DF87DB8515DF3E9629D36630603 /* CoreDataProvider.swift */,
 				9275F74F6D6076BD48A1691EBB0B3305 /* DataModel.xcdatamodeld */,
 				847C1AB438FA58FA4E77F01FA78A2B20 /* Supporting Files */,
@@ -662,6 +692,8 @@
 		81934879F81B3551860EEDD5C8DA107D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				D8390A3C2528FADA0025C699 /* PinTextField */,
+				D8390A262528B3310025C699 /* TabBar */,
 				AFA5DE32957BAD17743D7E15C04C3E4A /* AsyncImageView */,
 				BC3CC0DF29C53EAB4F289FFA77FF4238 /* MediaCell */,
 			);
@@ -710,6 +742,7 @@
 				76B806B175360A5FE6D04A13EF4CDC1F /* Person.swift */,
 				6E53CD2F93DB74BE7C3AC5BA4B22DDF0 /* Schedule.swift */,
 				9D1F272C1362FF4F7E6BD60992D8C120 /* Show.swift */,
+				D8390A362528D8010025C699 /* Settings.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -793,6 +826,36 @@
 			path = Cloud;
 			sourceTree = "<group>";
 		};
+		D8390A262528B3310025C699 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D8390A272528B3470025C699 /* MainTabViewController.swift */,
+				D8390A292528B5940025C699 /* MainTabViewModel.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		D8390A2B2528C0140025C699 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				D8390A2C2528C05C0025C699 /* SettingsViewController.swift */,
+				D8390A2E2528C2000025C699 /* SettingsViewModel.swift */,
+				D8390A382528E61C0025C699 /* EnterPinViewController.swift */,
+				D8390A3A2528E6390025C699 /* EnterPinViewModel.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		D8390A3C2528FADA0025C699 /* PinTextField */ = {
+			isa = PBXGroup;
+			children = (
+				D8390A3D2528FAEC0025C699 /* EnterPinView.swift */,
+				D8390A412528FFB60025C699 /* EnterPinTextFieldView.swift */,
+				D8390A3F2528FB270025C699 /* EnterPinTextFieldViewModel.swift */,
+			);
+			path = PinTextField;
+			sourceTree = "<group>";
+		};
 		DDF6F58B9C7A4D4EB2CE88ADD2D07E95 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -826,8 +889,8 @@
 			children = (
 				29430D14D6E973627FEF37ACE48E82F8 /* Bootstrap */,
 				CA577A4F722FDAA5C489F0F6EE35479A /* Dependency Container */,
-				0D121343FA240EDAFE37C80CFBE8E507 /* Supporting Files */,
 				2FE140B8A7E756565C444BC5C8FC055C /* User Interface */,
+				0D121343FA240EDAFE37C80CFBE8E507 /* Supporting Files */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -1342,6 +1405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8390A332528D7B20025C699 /* CoreDataSettingsProvider.swift in Sources */,
 				DDC5E371A6E6AE4E800F8A7A2BCF55E2 /* CoreDataFavoriteProvider.swift in Sources */,
 				1DF11BCC2153F23389C841302D295DC2 /* CoreDataProvider.swift in Sources */,
 				3A3A4359AEDA3626BF943CA2138C92E4 /* DataModel.xcdatamodeld in Sources */,
@@ -1352,11 +1416,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8390A282528B3470025C699 /* MainTabViewController.swift in Sources */,
+				D8390A2A2528B5940025C699 /* MainTabViewModel.swift in Sources */,
 				8B6F7438F0BA64DBB42FC0403FBA2F56 /* AppDelegate.swift in Sources */,
 				55CF8EE71D7010B444AE46BD18A512EF /* AsyncImageView.swift in Sources */,
 				0D4349E45AD189648B87C929B432FA5A /* AsyncImageViewModel.swift in Sources */,
+				D8390A2D2528C05C0025C699 /* SettingsViewController.swift in Sources */,
 				73E8E9751D6E633A0F1C9AF66BA86FA8 /* EpisodeDetailViewController.swift in Sources */,
 				B947011921B669807953C415D1B08B93 /* EpisodeDetailViewModel.swift in Sources */,
+				D8390A3E2528FAEC0025C699 /* EnterPinView.swift in Sources */,
+				D8390A3B2528E6390025C699 /* EnterPinViewModel.swift in Sources */,
+				D8390A402528FB270025C699 /* EnterPinTextFieldViewModel.swift in Sources */,
 				4AD44D2BAAE94326597A807739743003 /* FavoriteListViewController.swift in Sources */,
 				C96BC05F3C376EFA7B59F0D6E49879F4 /* FavoriteListViewModel.swift in Sources */,
 				398A559F55F20CD5EF1A72F22609766C /* Injector.swift in Sources */,
@@ -1367,8 +1437,11 @@
 				643E271BC0FF6F176B0F38FB2CB7C7AF /* PersonListViewModel.swift in Sources */,
 				E983E55B9D51174789E21A93DE8CE90E /* ShowDetailViewController.swift in Sources */,
 				DEE159894D6EBA2A12B58ADD0667FD80 /* ShowDetailViewModel.swift in Sources */,
+				D8390A422528FFB60025C699 /* EnterPinTextFieldView.swift in Sources */,
 				325090D7C331050945AE444447EFC0FA /* ShowListViewController.swift in Sources */,
+				D8390A2F2528C2000025C699 /* SettingsViewModel.swift in Sources */,
 				E81700569E762EB6D056063F278F79E5 /* ShowListViewModel.swift in Sources */,
+				D8390A392528E61C0025C699 /* EnterPinViewController.swift in Sources */,
 				C1BC40BE46F8BB6313B748D9F4F1688A /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1398,7 +1471,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8390A2325285C5B0025C699 /* TouchIdAuthProvider.swift in Sources */,
+				D8390A2325285C5B0025C699 /* BiometricsAuthProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1433,7 +1506,9 @@
 				661146C1B5BDCB0A5E92A9F2C7448391 /* ScreenType.swift in Sources */,
 				C08FA46B48E615107E74D99D360F238A /* SecretKey.swift in Sources */,
 				D8390A2525285E790025C699 /* AuthProvider.swift in Sources */,
+				D8390A352528D7E50025C699 /* SettingsProvider.swift in Sources */,
 				D3CA1581ADB856D6977366A13CEE0FCB /* SecretProvider.swift in Sources */,
+				D8390A372528D8010025C699 /* Settings.swift in Sources */,
 				D3682A667A0235C14A32ADE94FDA16A5 /* Show.swift in Sources */,
 				5E50123EFAD0F6C58D9AEC1FEC2A86A3 /* ShowProvider.swift in Sources */,
 				112C062DF48CD9AABC6561AC5367DB45 /* StatusCode.swift in Sources */,
@@ -1441,6 +1516,7 @@
 				AE4E50827ABDACEC1C52E16B2971D7B3 /* UIDevice+ScreenType.swift in Sources */,
 				2721F36A30B9362B824D9BFBD38012C1 /* UIImageView+AsyncLoad.swift in Sources */,
 				111CE4BCCA805520D783ED91491C7CE3 /* UIView+Loading.swift in Sources */,
+				D8390A312528C5D90025C699 /* AuthType.swift in Sources */,
 				BFCD94C2590F9E134865389042ED206D /* UIView+Message.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

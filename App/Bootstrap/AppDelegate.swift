@@ -8,10 +8,12 @@
 
 import UIKit
 import Core
+import Database
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     lazy var injector = Injector()
+    var coreDataProvider = CoreDataProvider()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         injector.load()

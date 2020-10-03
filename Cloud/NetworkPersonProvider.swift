@@ -13,6 +13,7 @@ public class NetworkPersonProvider: PersonProvider {
     lazy var requestProvider = Dependency.resolve(RequestProvider.self)
     lazy var showProvider = Dependency.resolve(ShowProvider.self)
     lazy var decoder = JSONDecoder()
+    static let queue = DispatchQueue(label: "NetworkPersonProvider")
 
     public init() {
     }
@@ -20,7 +21,7 @@ public class NetworkPersonProvider: PersonProvider {
     public func retrievePeople(searchTerm: String) -> Promise<[Person]> {
         requestProvider
             .request(endpoint: .retrievePeople, with: searchTerm.urlEncoded)
-            .map { [weak self] data, statusCode -> [Person] in
+            .map(on: Self.queue) { [weak self] data, statusCode -> [Person] in
                 if statusCode == .notFound {
                     throw NetworkError.dataNotFound
                 }
@@ -34,10 +35,10 @@ public class NetworkPersonProvider: PersonProvider {
     public func loadShows(person: Person) -> Promise<Person> {
         var person = person
         return retrieveShowIds(personId: person.id)
-            .then { showIds -> Promise<[Show]> in
+            .then(on: Self.queue) { showIds -> Promise<[Show]> in
                 let shows = showIds.map { self.showProvider.retrieveShow(id: $0) }
                 return when(fulfilled: shows)
-            }.map { shows -> Person in
+            }.map(on: Self.queue) { shows -> Person in
                 person.shows = shows
                 return person
             }
@@ -46,7 +47,7 @@ public class NetworkPersonProvider: PersonProvider {
     private func retrieveShowIds(personId: Int) -> Promise<[Int]> {
         requestProvider
             .request(endpoint: .retrieveShowsFromPerson, with: personId)
-            .map { data, statusCode -> [Int] in
+            .map(on: Self.queue) { data, statusCode -> [Int] in
                 if statusCode == .notFound {
                     throw NetworkError.dataNotFound
                 }

@@ -9,7 +9,7 @@
 import CoreData
 import PromiseKit
 
-class CoreDataProvider {
+public class CoreDataProvider {
     private static var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         guard let lastUrl = urls.last else {
@@ -43,6 +43,14 @@ class CoreDataProvider {
         return coordinator
     }()
 
+    @objc private func save() {
+        if Self.context.hasChanges {
+            Self.context.perform {
+                try? Self.context.save()
+            }
+        }
+    }
+
     static var context: NSManagedObjectContext = {
         let coordinator = persistentStoreCoordinator
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
@@ -50,17 +58,12 @@ class CoreDataProvider {
         return managedObjectContext
     }()
 
+    public init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.willTerminateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
 
-    static func save() -> Promise<Void> {
-        Promise { seal in
-            if context.hasChanges {
-                context.perform {
-                    try? context.save()
-                    seal.fulfill(())
-                }
-            } else {
-                seal.fulfill(())
-            }
-        }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

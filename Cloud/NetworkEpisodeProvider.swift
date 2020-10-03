@@ -9,13 +9,10 @@
 import Core
 import PromiseKit
 
-public protocol EpisodeProvider {
-    func retrieveEpisodes(showId: Int) -> Promise<[Episode]>
-}
-
 public class NetworkEpisodeProvider: EpisodeProvider {
     lazy var requestProvider = Dependency.resolve(RequestProvider.self)
     lazy var decoder = JSONDecoder()
+    static let queue = DispatchQueue(label: "NetworkEpisodeProvider")
 
     public init() {
     }
@@ -23,7 +20,7 @@ public class NetworkEpisodeProvider: EpisodeProvider {
     public func retrieveEpisodes(showId: Int) -> Promise<[Episode]> {
         requestProvider
             .request(endpoint: .retrieveEpisodes, with: showId)
-            .map { [weak self] data, statusCode -> [Episode] in
+            .map(on: Self.queue) { [weak self] data, statusCode -> [Episode] in
                 if statusCode == .notFound {
                     throw NetworkError.dataNotFound
                 }
@@ -31,7 +28,6 @@ public class NetworkEpisodeProvider: EpisodeProvider {
                     throw NetworkError.parseFailed
                 }
                 return episodes
-                
             }
     }
 }

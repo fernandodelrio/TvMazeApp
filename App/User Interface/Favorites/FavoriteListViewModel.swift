@@ -23,10 +23,8 @@ class FavoriteListViewModel {
         onLoadingChange?(true)
         favoriteProvider
             .retrieveFavorites()
-            .then { favorites -> Promise<([Show], [Favorite])> in
-                let shows = favorites.map { self.showProvider.retrieveShow(id: $0.show.id) }
-                return when(fulfilled: shows).map { ($0, favorites) }
-            }.done { [weak self] shows, favorites in
+            .done { [weak self] favorites in
+                let shows = favorites.map { $0.show }
                 self?.data = shows
                     .map { ($0, true) }
                     .sorted { $0.show.name < $1.show.name }

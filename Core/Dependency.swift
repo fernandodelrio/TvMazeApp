@@ -21,7 +21,7 @@ public class Dependency {
         if let resolution = registry[key] as? () -> T {
             return resolution()
         } else {
-            fatalError("Missing register dependency")
+            fatalError("Missing register dependency \(key)")
         }
     }
 }
