@@ -1,0 +1,12 @@
+//
+//  SecretKey.swift
+//  Core
+//
+//  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/3/20.
+//
+
+import Foundation
+
+public enum SecretKey: String {
+    case pin
+}

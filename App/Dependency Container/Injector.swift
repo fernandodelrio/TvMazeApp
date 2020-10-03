@@ -9,6 +9,7 @@
 import Core
 import Cloud
 import Database
+import Secure
 
 class Injector {
     func load() {
@@ -38,6 +39,10 @@ class Injector {
 
         Dependency.register(FavoriteProvider.self) {
             CoreDataFavoriteProvider()
+        }
+        
+        Dependency.register(SecretProvider.self) {
+            KeychainSecretProvider()
         }
     }
 }

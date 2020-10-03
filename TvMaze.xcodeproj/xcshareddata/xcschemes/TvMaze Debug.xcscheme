@@ -28,6 +28,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E25EFEEA7930D70DE5F99A314CAA2C9F"
+               BuildableName = "Auth.framework"
+               BlueprintName = "Auth"
+               ReferencedContainer = "container:TvMaze.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "2DA1F600B7CFE119BCCDC619857CE56D"
                BuildableName = "Cloud.framework"
                BlueprintName = "Cloud"
@@ -59,6 +73,20 @@
                BlueprintIdentifier = "4C594D46CE036048F86403C1FCF932F6"
                BuildableName = "Database.framework"
                BlueprintName = "Database"
+               ReferencedContainer = "container:TvMaze.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E38A7CCBC10EF833071BD72DCE69857D"
+               BuildableName = "Secure.framework"
+               BlueprintName = "Secure"
                ReferencedContainer = "container:TvMaze.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

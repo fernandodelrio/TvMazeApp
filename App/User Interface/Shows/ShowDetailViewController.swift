@@ -15,11 +15,17 @@ class ShowDetailViewController: UIViewController {
     @IBOutlet weak var genresLabel: UILabel?
     @IBOutlet weak var summaryTextView: UITextView?
     @IBOutlet weak var tableView: UITableView?
-
+    @IBOutlet weak var summaryTextViewHeight: NSLayoutConstraint?
+    
     var viewModel = ShowDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UIDevice.screenType.isSmallScreen {
+            summaryTextViewHeight?.constant = 50
+        } else {
+            summaryTextViewHeight?.constant = 120
+        }
         summaryTextView?.textContainerInset = .zero
         summaryTextView?.textContainer.lineFragmentPadding = 0
         viewModel.onLoadingChange = { [weak self] isLoading in
@@ -93,8 +99,9 @@ class ShowDetailViewController: UIViewController {
     }
 
     private func setFavoriteButtonState(isFavorited: Bool) {
-        let image = isFavorited ? UIImage(named: "star.filled") : UIImage(named: "star")
-        favoriteButton?.setImage(image, for: .normal)
+        let image = isFavorited ? UIImage(named: "star-filled") : UIImage(named: "star")
+        favoriteButton?.setBackgroundImage(image, for: .normal)
+        favoriteButton?.reloadInputViews()
     }
 }
 

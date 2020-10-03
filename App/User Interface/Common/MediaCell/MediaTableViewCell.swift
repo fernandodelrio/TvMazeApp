@@ -27,7 +27,7 @@ class MediaTableViewCell: UITableViewCell {
     }
     
     private func setFavoriteButtonState(isFavorited: Bool) {
-        let image = isFavorited ? UIImage(named: "star.filled") : UIImage(named: "star")
+        let image = isFavorited ? UIImage(named: "star-filled") : UIImage(named: "star")
         favoriteButton?.setImage(image, for: .normal)
     }
     

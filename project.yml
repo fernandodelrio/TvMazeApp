@@ -14,6 +14,8 @@ targets:
       - target: Core
       - target: Cloud
       - target: Database
+      - target: Secure
+      - target: Auth
   Core:
     type: framework
     platform: iOS
@@ -32,6 +34,18 @@ targets:
       - target: Core
       - target: Cloud
       - sdk: CoreData.framework
+  Secure:
+    type: framework
+    platform: iOS
+    sources: [Secure]
+    dependencies:
+      - target: Core
+  Auth:
+    type: framework
+    platform: iOS
+    sources: [Auth]
+    dependencies:
+      - target: Core
   UnitTests:
     type: bundle.unit-test
     platform: iOS
@@ -46,6 +60,9 @@ targets:
       - target: App
       - target: Core
       - target: Cloud
+      - target: Database
+      - target: Secure
+      - target: Auth
 schemes:
   TvMaze Debug:
     build:
@@ -54,6 +71,8 @@ schemes:
         Core: all
         Cloud: all
         Database: all
+        Secure: all
+        Auth: all
         UnitTests: [test]
         UITests: [test]
     run:

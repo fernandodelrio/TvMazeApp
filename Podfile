@@ -28,3 +28,11 @@ end
 target 'Database' do
   commonPods
 end
+
+target 'Secure' do
+  commonPods
+end
+
+target 'Auth' do
+  commonPods
+end
