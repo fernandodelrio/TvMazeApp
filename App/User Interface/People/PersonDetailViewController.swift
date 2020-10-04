@@ -15,6 +15,7 @@ class PersonDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Person details".localized
         setupBindings()
         viewModel.load()
     }
@@ -53,7 +54,7 @@ class PersonDetailViewController: UIViewController {
             // When the loading finishes and there's no data
             // show a proper message
             if !isLoading, dataCount == 0 {
-                self?.view.showMessageLabel("No shows to display.")
+                self?.view.showMessageLabel("No shows to display.".localized)
             } else {
                 self?.view.hideMessageLabel()
             }
@@ -79,7 +80,7 @@ extension PersonDetailViewController: UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Participated on these shows"
+        "Participated on these shows".localized
     }
 
     // Navigate to the shows the person participated

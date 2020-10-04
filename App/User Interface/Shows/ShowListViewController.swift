@@ -5,15 +5,19 @@
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/1/20.
 //
 
+import Core
 import UIKit
 
 class ShowListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var bottomLoadingView: UIView?
+    @IBOutlet weak var searchBar: UISearchBar?
     lazy var viewModel = ShowListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = MainTab.shows.title
+        searchBar?.placeholder = "Search for shows".localized
         setupBindings()
         viewModel.load()
     }
@@ -47,7 +51,7 @@ class ShowListViewController: UIViewController {
             // When the loading finishes and there's no data
             // show a proper message
             if !isLoading, dataCount == 0 {
-                self?.view.showMessageLabel("No results found.")
+                self?.view.showMessageLabel("No results found.".localized)
             } else {
                 self?.view.hideMessageLabel()
             }

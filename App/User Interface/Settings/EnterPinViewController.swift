@@ -8,6 +8,7 @@
 import UIKit
 
 class EnterPinViewController: UIViewController {
+    @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var enterPin1View: EnterPinView?
     @IBOutlet weak var enterPin2View: EnterPinView?
     @IBOutlet weak var enterPin3View: EnterPinView?
@@ -17,6 +18,7 @@ class EnterPinViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleLabel?.text = "Enter the PIN to continue".localized
         setupBindings()
         setupTargetActions()
         // Give focus to the first PIN digit

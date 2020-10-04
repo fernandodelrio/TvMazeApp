@@ -14,11 +14,11 @@ public enum AuthType {
     case faceID
     case unsupported
 
-    public var localized: String {
+    public var title: String {
         switch self {
-        case .touchID: return "Touch ID"
-        case .faceID: return "Face ID"
-        case .unsupported: return "Unsupported"
+        case .touchID: return "Touch ID".localized
+        case .faceID: return "Face ID".localized
+        case .unsupported: return "Unsupported".localized
         }
     }
 }

@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Favorites-->
+        <!--Favorite List View Controller-->
         <scene sceneID="VVE-Rz-kwY">
             <objects>
                 <viewController id="DlM-WC-KSc" customClass="FavoriteListViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
@@ -87,7 +87,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aQr-Cl-LvY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Favorites" id="Ddp-jq-Ogq"/>
+                    <navigationItem key="navigationItem" id="Ddp-jq-Ogq"/>
                     <connections>
                         <outlet property="tableView" destination="mw8-oW-ox8" id="dp2-V6-v9E"/>
                         <segue destination="b0e-Sd-iGc" kind="show" identifier="favoriteListToDetailSegue" id="3ml-oi-V2t"/>
@@ -97,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="-14" y="1440"/>
         </scene>
-        <!--Person details-->
+        <!--Person Detail View Controller-->
         <scene sceneID="ooN-XA-Pwk">
             <objects>
                 <viewController id="L4T-hW-CBU" customClass="PersonDetailViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,7 +195,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tJB-zO-XGm"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Person details" id="7qH-fX-zEN"/>
+                    <navigationItem key="navigationItem" id="7qH-fX-zEN"/>
                     <connections>
                         <outlet property="mediaImageView" destination="9Xp-BD-KhF" id="qH8-ZJ-3nd"/>
                         <outlet property="nameLabel" destination="PhA-P8-E4f" id="W9y-0m-HyC"/>
@@ -207,7 +207,7 @@
             </objects>
             <point key="canvasLocation" x="-923.1884057971015" y="2276.7857142857142"/>
         </scene>
-        <!--Episode details-->
+        <!--Episode Detail View Controller-->
         <scene sceneID="gH5-su-0bh">
             <objects>
                 <viewController id="fqU-95-CKd" customClass="EpisodeDetailViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
@@ -283,7 +283,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LmD-aS-rlL"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Episode details" id="gov-RV-Vf9"/>
+                    <navigationItem key="navigationItem" id="gov-RV-Vf9"/>
                     <connections>
                         <outlet property="episodeLabel" destination="eIC-Ab-hqL" id="Xz5-FH-Q6q"/>
                         <outlet property="mediaImageView" destination="Su9-od-NIg" id="ap9-08-yFF"/>
@@ -295,7 +295,7 @@
             </objects>
             <point key="canvasLocation" x="-1875.3623188405797" y="3059.5982142857142"/>
         </scene>
-        <!--Shows-->
+        <!--Show List View Controller-->
         <scene sceneID="Q4x-P7-N32">
             <objects>
                 <viewController id="Ph1-Jg-q63" customClass="ShowListViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,7 +303,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search for shows" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-UY-4uv">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NiO-UY-4uv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -407,9 +407,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="N2q-SI-Poi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Shows" id="f9k-SM-QvV"/>
+                    <navigationItem key="navigationItem" id="f9k-SM-QvV"/>
                     <connections>
                         <outlet property="bottomLoadingView" destination="TSu-H0-wnG" id="vta-9i-jyw"/>
+                        <outlet property="searchBar" destination="NiO-UY-4uv" id="RHm-nS-VNW"/>
                         <outlet property="tableView" destination="goe-Rv-SHO" id="VtG-QH-wWe"/>
                         <segue destination="b0e-Sd-iGc" kind="show" identifier="showListToDetailSegue" id="e2x-je-JHo"/>
                     </connections>
@@ -418,7 +419,7 @@
             </objects>
             <point key="canvasLocation" x="-1875.3623188405797" y="1439.7321428571429"/>
         </scene>
-        <!--People-->
+        <!--Person List View Controller-->
         <scene sceneID="v21-46-l6x">
             <objects>
                 <viewController id="w8i-9x-4gX" customClass="PersonListViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
@@ -471,7 +472,7 @@
                                     <outlet property="delegate" destination="w8i-9x-4gX" id="Cs8-B4-aVj"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" placeholder="Search for people" translatesAutoresizingMaskIntoConstraints="NO" id="PV4-V0-KZg">
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="PV4-V0-KZg">
                                 <rect key="frame" x="0.0" y="88" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -491,8 +492,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wJO-0B-W2q"/>
                     </view>
-                    <navigationItem key="navigationItem" title="People" id="fXW-3b-vJ7"/>
+                    <navigationItem key="navigationItem" id="fXW-3b-vJ7"/>
                     <connections>
+                        <outlet property="searchBar" destination="PV4-V0-KZg" id="rGI-na-Rmc"/>
                         <outlet property="tableView" destination="uk0-jk-X01" id="aNc-OJ-1d7"/>
                         <segue destination="L4T-hW-CBU" kind="show" identifier="peopleListToDetailSegue" id="41w-iK-Fhx"/>
                     </connections>
@@ -522,11 +524,11 @@
             </objects>
             <point key="canvasLocation" x="-923" y="-442"/>
         </scene>
-        <!--People-->
+        <!--Navigation Controller-->
         <scene sceneID="86W-d6-yv6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Xfi-5d-ONm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="People" image="user" id="Wj0-Gv-oAk"/>
+                    <tabBarItem key="tabBarItem" title="" image="user" id="Wj0-Gv-oAk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="v7S-VA-eiK">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -541,11 +543,11 @@
             </objects>
             <point key="canvasLocation" x="-923" y="528"/>
         </scene>
-        <!--Favorites-->
+        <!--Navigation Controller-->
         <scene sceneID="W01-Sb-WfW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KXv-ZI-Poz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" image="star" id="o22-Dx-osS"/>
+                    <tabBarItem key="tabBarItem" title="" image="star" id="o22-Dx-osS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8Si-jB-zfl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -560,7 +562,7 @@
             </objects>
             <point key="canvasLocation" x="-14" y="528"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="gGX-le-TYt">
             <objects>
                 <viewController id="vne-ba-ykX" customClass="SettingsViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
@@ -574,7 +576,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-eO-rbf">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="31"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enable Pin" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiO-oP-Fd4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiO-oP-Fd4">
                                                 <rect key="frame" x="0.0" y="0.0" width="191" height="31"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -617,11 +619,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ia4-G3-OcO"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="iuk-4V-pdy"/>
+                    <navigationItem key="navigationItem" id="iuk-4V-pdy"/>
                     <connections>
                         <outlet property="enableBiometricsLabel" destination="a1V-GH-Shl" id="Rhd-4a-rUw"/>
                         <outlet property="enableBiometricsStackView" destination="Dwz-il-OIa" id="Byk-fx-Xq7"/>
                         <outlet property="enableBiometricsSwitch" destination="l6Q-ey-d3l" id="wLA-CC-i05"/>
+                        <outlet property="enablePinLabel" destination="qiO-oP-Fd4" id="tfz-yb-yy4"/>
                         <outlet property="enablePinStackView" destination="Hyh-eO-rbf" id="AHW-Lh-5I4"/>
                         <outlet property="enablePinSwitch" destination="A9E-l6-bem" id="Pee-wW-SDk"/>
                         <segue destination="gvn-SA-847" kind="presentation" identifier="settingsToPinSegue" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="DfT-t4-rhj"/>
@@ -640,44 +643,57 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vU2-GO-0rc">
-                                <rect key="frame" x="95" y="76" width="224" height="82"/>
+                                <rect key="frame" x="16" y="76" width="382" height="82"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the PIN to continue" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVs-uj-5Rm">
-                                        <rect key="frame" x="0.0" y="0.0" width="224" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVs-uj-5Rm">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dUM-vU-Jre">
-                                        <rect key="frame" x="0.0" y="32" width="224" height="50"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="La3-N8-xRU">
+                                        <rect key="frame" x="0.0" y="32" width="382" height="50"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zu-cr-QP2" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lws-va-CbU" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
-                                                <rect key="frame" x="58" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUS-cP-bwz" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
-                                                <rect key="frame" x="116" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-Kn-SUe" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
-                                                <rect key="frame" x="174" y="0.0" width="50" height="50"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Tw6-1M-CEU"/>
-                                                    <constraint firstAttribute="width" constant="50" id="z1o-mJ-HaJ"/>
-                                                </constraints>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dUM-vU-Jre">
+                                                <rect key="frame" x="79" y="0.0" width="224" height="50"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zu-cr-QP2" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lws-va-CbU" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                        <rect key="frame" x="58" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUS-cP-bwz" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                        <rect key="frame" x="116" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-Kn-SUe" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                        <rect key="frame" x="174" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="Tw6-1M-CEU"/>
+                                                            <constraint firstAttribute="width" constant="50" id="z1o-mJ-HaJ"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="dUM-vU-Jre" firstAttribute="top" secondItem="La3-N8-xRU" secondAttribute="top" id="BJP-4w-mUG"/>
+                                            <constraint firstItem="dUM-vU-Jre" firstAttribute="centerX" secondItem="La3-N8-xRU" secondAttribute="centerX" id="Ifs-6b-9AJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="dUM-vU-Jre" secondAttribute="bottom" id="SDn-vS-jnl"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="vU2-GO-0rc" firstAttribute="leading" secondItem="MeN-jI-bxy" secondAttribute="leading" constant="16" id="2VF-AW-7GS"/>
+                            <constraint firstItem="MeN-jI-bxy" firstAttribute="trailing" secondItem="vU2-GO-0rc" secondAttribute="trailing" constant="16" id="Jxq-x9-8hy"/>
                             <constraint firstItem="vU2-GO-0rc" firstAttribute="centerX" secondItem="20y-GN-ZyK" secondAttribute="centerX" id="w5o-nd-qrg"/>
                             <constraint firstItem="vU2-GO-0rc" firstAttribute="top" secondItem="MeN-jI-bxy" secondAttribute="top" constant="32" id="xQV-Vp-gaY"/>
                         </constraints>
@@ -689,17 +705,18 @@
                         <outlet property="enterPin2View" destination="lws-va-CbU" id="Sgt-Ib-eeE"/>
                         <outlet property="enterPin3View" destination="xUS-cP-bwz" id="ZvI-LP-EvN"/>
                         <outlet property="enterPin4View" destination="OBA-Kn-SUe" id="4uJ-Y3-ypb"/>
+                        <outlet property="titleLabel" destination="UVs-uj-5Rm" id="5lM-3O-0qp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Un5-ky-Par" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2233" y="1440"/>
         </scene>
-        <!--Shows-->
+        <!--Navigation Controller-->
         <scene sceneID="nPg-0U-E9A">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="h4w-g7-3na" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shows" image="video-player" id="fyA-Lw-GOb"/>
+                    <tabBarItem key="tabBarItem" title="" image="video-player" id="fyA-Lw-GOb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IbM-bl-Fjw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -714,7 +731,7 @@
             </objects>
             <point key="canvasLocation" x="-1874" y="529"/>
         </scene>
-        <!--Show details-->
+        <!--Show Detail View Controller-->
         <scene sceneID="kiO-xO-2DA">
             <objects>
                 <viewController id="b0e-Sd-iGc" customClass="ShowDetailViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
@@ -842,7 +859,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Cc-qh-PZD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Show details" id="yd2-vQ-xzo"/>
+                    <navigationItem key="navigationItem" id="yd2-vQ-xzo"/>
                     <connections>
                         <outlet property="favoriteButton" destination="qSq-9y-OXq" id="B17-yx-YJx"/>
                         <outlet property="genresLabel" destination="LGZ-if-gIm" id="DXo-og-Kc0"/>
@@ -859,11 +876,11 @@
             </objects>
             <point key="canvasLocation" x="-1875.3623188405797" y="2276.7857142857142"/>
         </scene>
-        <!--Settings-->
+        <!--Navigation Controller-->
         <scene sceneID="tZw-yT-Odf">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="l1t-XS-W0a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" id="GAy-yG-LGm"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings" id="GAy-yG-LGm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fgJ-1X-o1G">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

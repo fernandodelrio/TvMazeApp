@@ -5,6 +5,7 @@
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/3/20.
 //
 
+import Core
 import UIKit
 
 class EnterPinView: UIView {
@@ -27,17 +28,17 @@ class EnterPinView: UIView {
     // Adding shadow and border to the container view
     // If it's an error, show in a different color
     func updateInputStyle(isError: Bool) {
-        layer.shadowColor = isError ? UIColor.red.cgColor : UIColor.gray.cgColor
-        layer.borderColor = isError ? UIColor.red.cgColor : UIColor.gray.cgColor
+        layer.shadowColor = isError ? AppConstants.defaultErrorColor : AppConstants.defaultBorderColor
+        layer.borderColor = isError ? AppConstants.defaultErrorColor : AppConstants.defaultBorderColor
     }
 
     // Adding corner radius to the text field
     private func setupInputStyle() {
-        layer.cornerRadius = 5.0
-        layer.shadowOffset = .init(width: 3.0, height: 3.0)
-        layer.shadowRadius = 3.0
-        layer.shadowOpacity = 0.5
-        layer.borderWidth = 1.0
+        layer.cornerRadius = AppConstants.inputCornerRadius
+        layer.shadowOffset = AppConstants.defaultShadowOffset
+        layer.shadowRadius = AppConstants.defaultShadowRadius
+        layer.shadowOpacity = AppConstants.defaultShadowOpacity
+        layer.borderWidth = AppConstants.defaultBorderWidth
         clipsToBounds = false
         updateInputStyle(isError: false)
     }

@@ -17,7 +17,7 @@ class AsyncImageView: UIView {
     // round corners simultaneously
     lazy var imageView: UIImageView = {
         let view = UIImageView()
-        view.layer.cornerRadius = 10.0
+        view.layer.cornerRadius = AppConstants.imageCornerRadius
         view.clipsToBounds = true
         return view
     }()
@@ -34,7 +34,7 @@ class AsyncImageView: UIView {
     // is getting scrolled, avoiding flickering
     // by the cell reuse + async load
     func setPlaceholder()  {
-        imageView.image = viewModel.placeholderImage
+        imageView.image = AppConstants.placeholderImage
         showLoading()
     }
 
@@ -53,9 +53,9 @@ class AsyncImageView: UIView {
 
     func setupShadow() {
         layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = .init(width: 3.0, height: 3.0)
-        layer.shadowRadius = 3.0
-        layer.shadowOpacity = 0.5
+        layer.shadowOffset = AppConstants.defaultShadowOffset
+        layer.shadowRadius = AppConstants.defaultShadowRadius
+        layer.shadowOpacity = AppConstants.defaultShadowOpacity
         clipsToBounds = false
     }
 

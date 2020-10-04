@@ -33,7 +33,7 @@ class MediaTableViewCell: UITableViewCell {
     
     // Change the image on the favorite button
     private func setFavoriteButtonState(isFavorited: Bool) {
-        let image = isFavorited ? UIImage(named: "star-filled") : UIImage(named: "star")
+        let image = isFavorited ? AppConstants.starFilledImage : AppConstants.starImage
         favoriteButton?.setBackgroundImage(image, for: .normal)
     }
     

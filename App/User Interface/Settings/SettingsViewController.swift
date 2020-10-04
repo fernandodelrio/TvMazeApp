@@ -5,11 +5,13 @@
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/3/20.
 //
 
+import Core
 import UIKit
 
 class SettingsViewController: UIViewController {
     @IBOutlet weak var enablePinStackView: UIStackView?
     @IBOutlet weak var enableBiometricsStackView: UIStackView?
+    @IBOutlet weak var enablePinLabel: UILabel?
     @IBOutlet weak var enableBiometricsLabel: UILabel?
     @IBOutlet weak var enablePinSwitch: UISwitch?
     @IBOutlet weak var enableBiometricsSwitch: UISwitch?
@@ -18,6 +20,8 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        enablePinLabel?.text = "Enable PIN".localized
+        navigationItem.title = MainTab.settings.title
         setupBindings()
         viewModel.load()
     }

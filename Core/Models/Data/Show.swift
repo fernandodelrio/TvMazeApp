@@ -24,6 +24,9 @@ public struct Show: Decodable {
     public var genres: [String]
     public var summary: String?
     public var episodesBySeason: [Int: [Episode]] = [:]
+    public var seasonKeys: [Int] {
+        episodesBySeason.keys.sorted()
+    }
 
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)

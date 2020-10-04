@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="FavoriteEntity" representedClassName="" syncable="YES">
+    <entity name="FavoriteEntity" representedClassName="." syncable="YES">
         <attribute name="showId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
-    <entity name="SettingsEntity" representedClassName="SettingsEntity" syncable="YES">
+    <entity name="SettingsEntity" representedClassName=".SettingsEntity" syncable="YES">
         <attribute name="isAuthActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <elements>

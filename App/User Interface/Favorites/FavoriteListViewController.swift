@@ -5,6 +5,7 @@
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/1/20.
 //
 
+import Core
 import UIKit
 
 class FavoriteListViewController: UIViewController {
@@ -13,6 +14,7 @@ class FavoriteListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = MainTab.favorites.title
         setupBindings()
     }
 
@@ -57,7 +59,7 @@ class FavoriteListViewController: UIViewController {
     private func updateMessageLabel(isLoading: Bool) {
         let dataCount = viewModel.data.count
         if !isLoading, dataCount == 0 {
-            view.showMessageLabel("No favorites to show.")
+            view.showMessageLabel("No favorites to show.".localized)
         } else {
             view.hideMessageLabel()
         }

@@ -5,17 +5,10 @@
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/3/20.
 //
 
+import Core
 import UIKit
 
 class MainTabViewController: UITabBarController {
-    // The main tabs of the app
-    enum Tabs: Int {
-        case shows
-        case people
-        case favorites
-        case settings
-    }
-
     // This view hides the app content, when
     // touch ID or face ID is being validated
     lazy var biometricsOverlayView: UIView = {
@@ -29,6 +22,12 @@ class MainTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.items?
+            .enumerated()
+            .forEach { index, item in
+                let tab = MainTab(rawValue: index)
+                item.title = tab?.title ?? ""
+            }
         setupBiometricsOverlayView()
         setupBindings()
         setupListeners()
@@ -52,7 +51,7 @@ class MainTabViewController: UITabBarController {
         // update the tab badge accordingly
         viewModel.onDataChange = { [weak self] favorites in
             let badgeValue = favorites.isEmpty ? nil : "\(favorites.count)"
-            self?.tabBar.items?[Tabs.favorites.rawValue].badgeValue = badgeValue
+            self?.tabBar.items?[MainTab.favorites.rawValue].badgeValue = badgeValue
         }
         // Navigate to enter PIN and secure the user content
         viewModel.onPinRequest = { [weak self] in

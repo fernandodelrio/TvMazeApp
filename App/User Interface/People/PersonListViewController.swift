@@ -5,14 +5,19 @@
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 9/30/20.
 //
 
+import Core
 import UIKit
 
 class PersonListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView?
+    @IBOutlet weak var searchBar: UISearchBar?
+    
     var viewModel = PersonListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = MainTab.people.title
+        searchBar?.placeholder = "Search for people".localized
         setupBindings()
         viewModel.load()
     }
@@ -51,7 +56,7 @@ class PersonListViewController: UIViewController {
             // When the loading finishes and there's no data
             // show a proper message
             if !isLoading, dataCount == 0 {
-                self?.view.showMessageLabel("No results found.")
+                self?.view.showMessageLabel("No results found.".localized)
             } else {
                 self?.view.hideMessageLabel()
             }
@@ -60,7 +65,7 @@ class PersonListViewController: UIViewController {
         // asking the user to search something
         viewModel.onSearchEmpty = { [weak self] isEmpty in
             if isEmpty {
-                self?.view.showMessageLabel("Search for interesting people.")
+                self?.view.showMessageLabel("Search for interesting people.".localized)
             } else {
                 self?.view.hideMessageLabel()
             }

@@ -13,7 +13,7 @@ import PromiseKit
 public class BiometricsAuthProvider: AuthProvider {
     private let context = LAContext()
     private var error: NSError?
-    private let reason = "Authenticate with Touch ID"
+    private let reason = "Authenticate with the app".localized
 
     public init() {
     }
@@ -39,9 +39,7 @@ public class BiometricsAuthProvider: AuthProvider {
     // Asks to authenticate, then returns a promise
     // indicating if it succeeded
     public func authenticate() -> Promise<Bool> {
-        Promise { [weak self] seal in
-            let reason = "Authenticate with the app"
-            self?.context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, _ in
+        Promise { [weak self] seal in            self?.context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, _ in
                 seal.fulfill(success)
             }
         }

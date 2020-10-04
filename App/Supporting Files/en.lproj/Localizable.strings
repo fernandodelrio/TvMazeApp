@@ -1,0 +1,41 @@
+/* 
+  Localized.strings
+  App
+  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/4/20.
+*/
+
+"Season %1$d episode %2$d." = "Season %1$d episode %2$d.";
+"No favorites to show." = "No favorites to show.";
+"No shows to display." = "No shows to display.";
+"Participated on these shows" = "Participated on these shows";
+"No results found." = "No results found.";
+"Search for interesting people." = "Search for interesting people.";
+"No schedule available." = "No schedule available.";
+"At %@." = "At %@.";
+"On %d." = "On %d.";
+"At %1$@ on %2$@." = "At %1$@ on %2$@.";
+"No genres available." = "No genres available.";
+"No summary available." = "No summary available.";
+"Season %d" = "Season %d";
+"Enable %@" = "Enable %@";
+"Authenticate with the app" = "Authenticate with the app";
+"Touch ID" = "Touch ID";
+"Face ID" = "Face ID";
+"Unsupported" = "Unsupported";
+"Shows" = "Shows";
+"People" = "People";
+"Favorites" = "Favorites";
+"Settings" = "Settings";
+"Search for shows" = "Search for shows";
+"Search for people" = "Search for people";
+"Enable PIN" = "Enable PIN";
+"Enter the PIN to continue" = "Enter the PIN to continue biscate";
+"Show details" = "Show details";
+"Person details" = "Person details";
+"Episode details" = "Episode details";
+"Face ID is used to secure your data." = "Face ID is used to secure your data.";
+"The endpoint url is invalid" = "The endpoint url is invalid";
+"The data was not found" = "The data was not found";
+"The last page was achieved" = "The last page was achieved";
+"The parsing of thee network response failed" = "The parsing of thee network response failed";
+"The rate limit was achieved" = "The rate limit was achieved";

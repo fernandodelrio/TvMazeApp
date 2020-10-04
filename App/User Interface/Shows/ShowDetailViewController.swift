@@ -30,13 +30,16 @@ class ShowDetailViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        navigationItem.title = "Show details".localized
         viewModel.appear()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as? EpisodeDetailViewController
         let indexPath = viewModel.selectedIndexPathForNavigation
-        let episode = viewModel.show?.episodesBySeason[indexPath.section]?[indexPath.row]
+        let keys = viewModel.show?.seasonKeys
+        let season = keys?[indexPath.section] ?? 1
+        let episode = viewModel.show?.episodesBySeason[season]?[indexPath.row]
         destination?.viewModel.episode = episode
     }
 
@@ -50,7 +53,9 @@ class ShowDetailViewController: UIViewController {
     // async + cell reuse
     private func loadImages() {
         tableView?.indexPathsForVisibleRows?.forEach {
-            let episode = viewModel.show?.episodesBySeason[$0.section]?[$0.row]
+            let keys = viewModel.show?.seasonKeys
+            let season = keys?[$0.section] ?? 1
+            let episode = viewModel.show?.episodesBySeason[season]?[$0.row]
             let cell = tableView?.cellForRow(at: $0) as? MediaTableViewCell
             cell?.mediaImageView?.loadImage(episode?.image)
         }
@@ -78,25 +83,25 @@ class ShowDetailViewController: UIViewController {
             // Setup the schedule. Fallback for when there's no days info
             // or when there's no time info. Or when both are missing
             if time.isEmpty, days.isEmpty {
-                self?.scheduleLabel?.text = "No schedule available."
+                self?.scheduleLabel?.text = "No schedule available.".localized
             } else if !time.isEmpty, days.isEmpty {
-                self?.scheduleLabel?.text = "At \(time)."
+                self?.scheduleLabel?.text = "At %@.".localizedWith(time)
             } else if time.isEmpty, !days.isEmpty {
-                self?.scheduleLabel?.text = "On \(days)."
+                self?.scheduleLabel?.text = "On %d.".localizedWith(days)
             } else {
-                self?.scheduleLabel?.text = "At \(time) on \(days)."
+                self?.scheduleLabel?.text = "At %1$@ on %2$@.".localizedWith(time, days)
             }
             // Setup the genres. Fallback for when there's no genres
             if let genres = self?.viewModel.show?.genres, !genres.isEmpty {
                 self?.genresLabel?.text = genres.joined(separator: ", ")
             } else {
-                self?.genresLabel?.text = "No genres available."
+                self?.genresLabel?.text = "No genres available.".localized
             }
             // Setup the summary. Fallback for when there's no summary
             if let summary = self?.viewModel.show?.summary, !summary.isEmpty {
                 self?.summaryTextView?.text = summary
             } else {
-                self?.summaryTextView?.text = "No summary available."
+                self?.summaryTextView?.text = "No summary available.".localized
             }
             let isFavorited = self?.viewModel.isFavorited ?? false
             self?.setFavoriteButtonState(isFavorited: isFavorited)
@@ -106,7 +111,7 @@ class ShowDetailViewController: UIViewController {
 
     // Set the favorite button image
     private func setFavoriteButtonState(isFavorited: Bool) {
-        let image = isFavorited ? UIImage(named: "star-filled") : UIImage(named: "star")
+        let image = isFavorited ? AppConstants.starFilledImage : AppConstants.starImage
         favoriteButton?.setBackgroundImage(image, for: .normal)
         favoriteButton?.reloadInputViews()
     }
@@ -154,16 +159,22 @@ extension ShowDetailViewController: UITableViewDataSource {
 
     // Each section represents a season
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        "Season \(section+1)"
+        let keys = viewModel.show?.seasonKeys
+        let season = keys?[section] ?? 1
+        return "Season %d".localizedWith(season)
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.show?.episodesBySeason[section]?.count ?? 0
+        let keys = viewModel.show?.seasonKeys
+        let season = keys?[section] ?? 1
+        return viewModel.show?.episodesBySeason[season]?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showDetailsCell", for: indexPath) as? MediaTableViewCell
-        let episode = viewModel.show?.episodesBySeason[indexPath.section]?[indexPath.row]
+        let keys = viewModel.show?.seasonKeys
+        let season = keys?[indexPath.section] ?? 1
+        let episode = viewModel.show?.episodesBySeason[season]?[indexPath.row]
         // Make sure to hide the favorite button
         // as this is a cell for an episode
         cell?.viewModel.isFavoriteEnabled = false

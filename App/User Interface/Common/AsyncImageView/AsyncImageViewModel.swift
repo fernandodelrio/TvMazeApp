@@ -16,16 +16,13 @@ class AsyncImageViewModel {
     // not visible anymore and it's downloading the image
     private var loadImageOperation: Operation?
     private var cancelPromise: (() -> Void)?
-    // The placeholder image to be used when there's no
-    // image available
-    lazy var placeholderImage = UIImage(named: "placeholder")
 
     func loadImage(_ url: URL?) -> Promise<UIImage?>  {
         // Cancel any previous operation
         cancelOperations()
         // No url informed, use the placeholder
         guard let url = url else {
-            return .value(placeholderImage)
+            return .value(AppConstants.placeholderImage)
         }
         // If it's already in cache returns it
         if let cached = imageCacheProvider.retrieve(url) {
@@ -47,7 +44,7 @@ class AsyncImageViewModel {
                             seal.fulfill(downloadedImage)
                         } else {
                             // Otherwise, returns the placeholder
-                            seal.fulfill(self?.placeholderImage)
+                            seal.fulfill(AppConstants.placeholderImage)
                         }
                     }
                     self?.loadImageOperation.map { OperationQueue.main.addOperation($0) }
@@ -57,7 +54,7 @@ class AsyncImageViewModel {
                         seal.reject(PMKError.cancelled)
                     }
                     self?.loadImageOperation = BlockOperation {
-                        seal.fulfill(self?.placeholderImage)
+                        seal.fulfill(AppConstants.placeholderImage)
                     }
                     self?.loadImageOperation.map { OperationQueue.main.addOperation($0) }
                 }

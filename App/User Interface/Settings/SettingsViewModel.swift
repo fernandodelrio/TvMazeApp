@@ -20,7 +20,7 @@ class SettingsViewModel {
     func load() {
         // Check if biometrics is enabled
         onBiometricsEnabledChange?(authProvider.authType != .unsupported)
-        onBiometricsLabelChange?("Enable \(authProvider.authType.localized)")
+        onBiometricsLabelChange?("Enable %@".localizedWith(authProvider.authType.title))
         onLoadSwitchState?(false)
         // Check if the toggle is on or off
         settingsProvider
