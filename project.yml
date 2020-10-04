@@ -2,7 +2,7 @@ name: TvMaze
 options:
   bundleIdPrefix: br.com.fernandodelrio
   deploymentTarget:
-    iOS: 9.3
+    iOS: 9.0
 settings:
   SWIFT_VERSION: 5.0
 targets:
@@ -13,6 +13,7 @@ targets:
     settings:
       TARGET_NAME: "TvMaze"
     dependencies:
+      - target: Features
       - target: Core
       - target: Cloud
       - target: Database
@@ -25,6 +26,12 @@ targets:
     type: framework
     platform: iOS
     sources: [Core]
+  Features:
+    type: framework
+    platform: iOS
+    sources: [Features]
+    dependencies:
+      - target: Core
   Cloud:
     type: framework
     platform: iOS
@@ -65,6 +72,7 @@ targets:
     sources: [UITests]
     dependencies:
       - target: App
+      - target: Features
       - target: Core
       - target: Cloud
       - target: Database
@@ -75,6 +83,7 @@ schemes:
     build:
       targets:
         App: all
+        Features: all
         Core: all
         Cloud: all
         Database: all

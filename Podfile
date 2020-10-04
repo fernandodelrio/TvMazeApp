@@ -1,4 +1,4 @@
-platform :ios, '9.3'
+platform :ios, '9.0'
 
 def commonPods
   use_frameworks!
@@ -35,5 +35,9 @@ target 'Secure' do
 end
 
 target 'Auth' do
+  commonPods
+end
+
+target 'Features' do
   commonPods
 end

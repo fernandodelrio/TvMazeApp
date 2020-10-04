@@ -11,7 +11,7 @@
         <!--Favorite List View Controller-->
         <scene sceneID="VVE-Rz-kwY">
             <objects>
-                <viewController id="DlM-WC-KSc" customClass="FavoriteListViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="DlM-WC-KSc" customClass="FavoriteListViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Je3-K0-TcH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,14 +20,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="122" id="7Uo-Hu-7LM" customClass="MediaTableViewCell" customModule="TvMaze" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="favoriteCell" rowHeight="122" id="7Uo-Hu-7LM" customClass="MediaTableViewCell" customModule="Features">
                                         <rect key="frame" x="0.0" y="28" width="414" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Uo-Hu-7LM" id="U38-xY-upC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="48a-rS-ypw" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="48a-rS-ypw" customClass="AsyncImageView" customModule="Features">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="VJX-Sr-WhP"/>
@@ -100,12 +100,12 @@
         <!--Person Detail View Controller-->
         <scene sceneID="ooN-XA-Pwk">
             <objects>
-                <viewController id="L4T-hW-CBU" customClass="PersonDetailViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L4T-hW-CBU" customClass="PersonDetailViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xuy-JL-4dO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-BD-KhF" customClass="AsyncImageView" customModule="TvMaze">
+                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Xp-BD-KhF" customClass="AsyncImageView" customModule="Features">
                                 <rect key="frame" x="16" y="104" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="9kB-pM-1FI"/>
@@ -122,14 +122,14 @@
                                 <rect key="frame" x="0.0" y="210" width="414" height="686"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personDetailsCell" rowHeight="122" id="qXo-Cw-LjI" customClass="MediaTableViewCell" customModule="TvMaze" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personDetailsCell" rowHeight="122" id="qXo-Cw-LjI" customClass="MediaTableViewCell" customModule="Features">
                                         <rect key="frame" x="0.0" y="28" width="414" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qXo-Cw-LjI" id="87N-6v-Yeu">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7Q-cd-ctZ" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U7Q-cd-ctZ" customClass="AsyncImageView" customModule="Features">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="3Xn-Bo-55R"/>
@@ -210,7 +210,7 @@
         <!--Episode Detail View Controller-->
         <scene sceneID="gH5-su-0bh">
             <objects>
-                <viewController id="fqU-95-CKd" customClass="EpisodeDetailViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fqU-95-CKd" customClass="EpisodeDetailViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N8G-x4-tLk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,7 +221,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NNo-k0-4Ji">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="186"/>
                                         <subviews>
-                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Su9-od-NIg" customClass="AsyncImageView" customModule="TvMaze">
+                                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Su9-od-NIg" customClass="AsyncImageView" customModule="Features">
                                                 <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="1Cp-J0-Tdg"/>
@@ -298,7 +298,7 @@
         <!--Show List View Controller-->
         <scene sceneID="Q4x-P7-N32">
             <objects>
-                <viewController id="Ph1-Jg-q63" customClass="ShowListViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ph1-Jg-q63" customClass="ShowListViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xfA-F8-MFJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -314,14 +314,14 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="619"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="122" id="HiK-LW-BN9" customClass="MediaTableViewCell" customModule="TvMaze" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showCell" rowHeight="122" id="HiK-LW-BN9" customClass="MediaTableViewCell" customModule="Features">
                                         <rect key="frame" x="0.0" y="28" width="414" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HiK-LW-BN9" id="ToY-Rv-vTs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="USE-iy-stB" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="USE-iy-stB" customClass="AsyncImageView" customModule="Features">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="Gez-1f-kVc"/>
@@ -422,7 +422,7 @@
         <!--Person List View Controller-->
         <scene sceneID="v21-46-l6x">
             <objects>
-                <viewController id="w8i-9x-4gX" customClass="PersonListViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="w8i-9x-4gX" customClass="PersonListViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nvd-sg-ThF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,14 +431,14 @@
                                 <rect key="frame" x="0.0" y="144" width="414" height="669"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personCell" rowHeight="122" id="iir-XX-KzM" customClass="MediaTableViewCell" customModule="TvMaze" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personCell" rowHeight="122" id="iir-XX-KzM" customClass="MediaTableViewCell" customModule="Features">
                                         <rect key="frame" x="0.0" y="28" width="414" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iir-XX-KzM" id="wHk-NR-sAT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xp-cH-RKd" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8xp-cH-RKd" customClass="AsyncImageView" customModule="Features">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="Qgw-eO-CZx"/>
@@ -506,7 +506,7 @@
         <!--Main Tab View Controller-->
         <scene sceneID="RdY-0r-H5r">
             <objects>
-                <tabBarController id="fTd-mC-XFg" customClass="MainTabViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="fTd-mC-XFg" customClass="MainTabViewController" customModule="Features" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SjO-Me-uvy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -565,7 +565,7 @@
         <!--Settings View Controller-->
         <scene sceneID="gGX-le-TYt">
             <objects>
-                <viewController id="vne-ba-ykX" customClass="SettingsViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vne-ba-ykX" customClass="SettingsViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h4X-hR-Nwp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -637,7 +637,7 @@
         <!--Enter Pin View Controller-->
         <scene sceneID="9xn-Kd-6ie">
             <objects>
-                <viewController id="gvn-SA-847" customClass="EnterPinViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="gvn-SA-847" customClass="EnterPinViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="20y-GN-ZyK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -657,19 +657,19 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dUM-vU-Jre">
                                                 <rect key="frame" x="79" y="0.0" width="224" height="50"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zu-cr-QP2" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zu-cr-QP2" customClass="EnterPinView" customModule="Features">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lws-va-CbU" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lws-va-CbU" customClass="EnterPinView" customModule="Features">
                                                         <rect key="frame" x="58" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUS-cP-bwz" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUS-cP-bwz" customClass="EnterPinView" customModule="Features">
                                                         <rect key="frame" x="116" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-Kn-SUe" customClass="EnterPinView" customModule="TvMaze" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBA-Kn-SUe" customClass="EnterPinView" customModule="Features">
                                                         <rect key="frame" x="174" y="0.0" width="50" height="50"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -734,12 +734,12 @@
         <!--Show Detail View Controller-->
         <scene sceneID="kiO-xO-2DA">
             <objects>
-                <viewController id="b0e-Sd-iGc" customClass="ShowDetailViewController" customModule="TvMaze" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b0e-Sd-iGc" customClass="ShowDetailViewController" customModule="Features" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hgv-o5-oPi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-Hi-hqW" customClass="AsyncImageView" customModule="TvMaze">
+                            <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-Hi-hqW" customClass="AsyncImageView" customModule="Features">
                                 <rect key="frame" x="16" y="104" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="hHh-BX-trc"/>
@@ -792,14 +792,14 @@
                                 <rect key="frame" x="0.0" y="324" width="414" height="489"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showDetailsCell" rowHeight="122" id="z1p-q6-UH4" customClass="MediaTableViewCell" customModule="TvMaze" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showDetailsCell" rowHeight="122" id="z1p-q6-UH4" customClass="MediaTableViewCell" customModule="Features">
                                         <rect key="frame" x="0.0" y="28" width="414" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z1p-q6-UH4" id="6jF-1g-Gzk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-fj-c92" customClass="AsyncImageView" customModule="TvMaze">
+                                                <view clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dwh-fj-c92" customClass="AsyncImageView" customModule="Features">
                                                     <rect key="frame" x="16" y="16" width="90" height="90"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="D69-Ze-q1c"/>
@@ -903,7 +903,7 @@
         <image name="video-player" width="32" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="e2x-je-JHo"/>
+        <segue reference="1aC-1t-Ggg"/>
         <segue reference="DfT-t4-rhj"/>
     </inferredMetricsTieBreakers>
 </document>
