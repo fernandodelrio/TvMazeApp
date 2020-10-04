@@ -8,6 +8,7 @@
 import UIKit
 
 public extension UIDevice {
+    // Maps devices screen sizes to the proper device family
     static var screenType: ScreenType {
         switch UIScreen.main.nativeBounds.height {
         case 1136: return .iPhone_5_5S_5C

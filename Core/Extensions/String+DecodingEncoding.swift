@@ -9,6 +9,7 @@
 import Foundation
 
 public extension String {
+    // Decoded HTML strings removing tags
     var htmlDecoded: String {
         guard let stringData = data(using: .utf8) else {
             return ""
@@ -23,7 +24,8 @@ public extension String {
         )
         return attributedString?.string ?? ""
     }
-    
+
+    // Encode URL strings, adding percent encoding
     var urlEncoded: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }

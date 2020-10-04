@@ -7,6 +7,8 @@
 
 import Foundation
 
+// The authentication types. Unsupported means, we
+// will use the custom PIN
 public enum AuthType {
     case touchID
     case faceID

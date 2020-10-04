@@ -30,6 +30,7 @@ public struct Person: Decodable {
             id = try values.decode(Int.self, forKey: .id)
             name = try values.decode(String.self, forKey: .name)
             let mediaImage = try? values.decode(MediaImage.self, forKey: .image)
+            // Using medium images, to improve mobile performance
             image = URL(string: mediaImage?.mediumImage ?? "")
         }
     }

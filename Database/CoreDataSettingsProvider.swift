@@ -17,9 +17,12 @@ public class CoreDataSettingsProvider: SettingsProvider {
 
     public func save(_ settings: Settings) -> Promise<Void> {
         Promise { seal in
+            // Calling context's perform as we are in a private queue
             context.perform {
                 let request = NSFetchRequest<NSManagedObject>(entityName: "SettingsEntity")
                 request.resultType = .managedObjectResultType
+                // We may need to insert or update, as the table
+                // will always have 1 row
                 if let existingEntity = (try? self.context.fetch(request))?.first {
                     existingEntity.setValue(settings.isAuthActive, forKey: "isAuthActive")
                 } else {
@@ -33,10 +36,13 @@ public class CoreDataSettingsProvider: SettingsProvider {
     
     public func retrieveSettings() -> Promise<Settings> {
         Promise { seal in
+            // Calling context's perform as we are in a private queue
             context.perform {
                 let request = NSFetchRequest<NSManagedObject>(entityName: "SettingsEntity")
                 request.resultType = .managedObjectResultType
                 let results = try? self.context.fetch(request)
+                // Check if the auth is active, then returns the settings object
+                // with this info
                 let isAuthActive = results?
                     .compactMap { $0.value(forKey: "isAuthActive") as? Bool }
                     .first ?? false

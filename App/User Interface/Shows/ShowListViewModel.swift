@@ -52,6 +52,10 @@ class ShowListViewModel {
                 // If there's some error, we need to check.
                 // When the error is lastPageAchieved, this means
                 // there's no more page to retrieve
+                // Then we stop the loading and finish. As we never
+                // call the reload, the isLoadingNewPages will
+                // never be set to false and new pages won't be
+                // retrieved any more
                 if (error as? NetworkError) == .lastPageAchieved {
                     self?.triggerLoading(isLoading: false)
                 }

@@ -9,6 +9,8 @@
 import PromiseKit
 
 public extension Promise {
+    // Retry a promise a number of times with a delay interval.
+    // Useful to retry requests, for instance
     @discardableResult static func retry<T>(times: Int, wait: TimeInterval = 5.0, body: @escaping () -> Promise<T>) -> Promise<T> {
         var attempts = times
         func attempt() -> Promise<T> {

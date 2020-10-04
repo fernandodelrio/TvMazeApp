@@ -10,6 +10,8 @@ import Core
 import UIKit
 
 public class NSImageCacheProvider: ImageCacheProvider {
+    // The cache uses NSCache to handle temporary
+    // transient data
     private var cache = NSCache<NSString, UIImage>()
 
     public init() {

@@ -7,6 +7,7 @@
 
 import Core
 
+// Store sensitive information in the keychain
 public class KeychainSecretProvider: SecretProvider {
     public init() {
     }

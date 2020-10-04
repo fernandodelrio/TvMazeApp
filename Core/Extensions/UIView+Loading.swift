@@ -9,6 +9,7 @@
 import UIKit
 
 public extension UIView {
+    // Shows a loading in the middle of the view
     func showLoading() {
         hideLoading()
         let activityIndicator = UIActivityIndicatorView()
@@ -24,6 +25,7 @@ public extension UIView {
         layoutIfNeeded()
     }
 
+    // Hides the loading
     func hideLoading() {
         subviews
             .compactMap { $0 as? UIActivityIndicatorView }

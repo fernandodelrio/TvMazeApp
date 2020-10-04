@@ -8,6 +8,7 @@
 
 import Core
 
+// This class retrieves the endpoints from a plist file
 public class PlistEndpointProvider: EndpointProvider {
     private let endpointsPlist = {
         Bundle(for: PlistEndpointProvider.self)

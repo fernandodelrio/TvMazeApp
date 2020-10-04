@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Family of devices, based on the screen size
+// Useful create specific layouts
 public enum ScreenType {
     case iPhone_5_5S_5C
     case iPhone_6_6S_7_8

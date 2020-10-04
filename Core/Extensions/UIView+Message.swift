@@ -8,6 +8,7 @@
 import UIKit
 
 public extension UIView {
+    // Shows a message label in the middle of the screen
     func showMessageLabel(_ message: String) {
         hideMessageLabel()
         let label = UILabel()
@@ -21,6 +22,7 @@ public extension UIView {
         layoutIfNeeded()
     }
 
+    // Hides the message label
     func hideMessageLabel() {
         subviews
             .compactMap { $0 as? UILabel }

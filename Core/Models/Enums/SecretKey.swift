@@ -7,6 +7,8 @@
 
 import Foundation
 
+// Keys for secret informations, that
+// needs to be stored with security
 public enum SecretKey: String {
     case pin
 }

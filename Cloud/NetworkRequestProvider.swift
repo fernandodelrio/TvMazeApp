@@ -15,17 +15,23 @@ public class NetworkRequestProvider: RequestProvider {
     public init() {
     }
 
+    // Request data from a specific endpoint
     public func request(endpoint: Endpoint, with args: CVarArg...) -> Promise<NetworkResponse> {
         guard let url = endpointProvider.url(for: endpoint, with: args) else {
             return .init(error: NetworkError.invalidUrl)
         }
-        return .retry(times: 3) {
+        // Performs the request and retry a number of times
+        // in case it fails
+        return .retry(times: AppConstants.requestRetryCount) {
             self.dataTaskPromise(url: url)
         }
     }
 
+    // Request a specific URL. Used for images, for instance
     public func request(url: URL) -> Promise<NetworkResponse> {
-        .retry(times: 3) {
+        // Performs the request and retry a number of times
+        // in case it fails
+        .retry(times: AppConstants.requestRetryCount) {
             self.dataTaskPromise(url: url)
         }
     }
@@ -39,6 +45,9 @@ public class NetworkRequestProvider: RequestProvider {
                 }
                 if let httpResponse = response as? HTTPURLResponse {
                     let statusCode = StatusCode(rawValue: httpResponse.statusCode) ?? .other
+                    // Even if the data isn't nil, if we receive tooManyRequests
+                    // it means the we exceeded the rate limit from MazeTV API.
+                    // We need to fail, so we may be able to retry the request
                     if statusCode == .tooManyRequests {
                         seal.reject(NetworkError.rateLimitAchieved)
                     } else {

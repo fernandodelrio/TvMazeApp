@@ -8,6 +8,7 @@
 
 import Foundation
 
+// The MazeTV endpoints we use
 public enum Endpoint: String {
     case retrieveShows = "RetrieveShows"
     case retrieveShow = "RetrieveShow"

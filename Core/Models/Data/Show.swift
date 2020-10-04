@@ -31,10 +31,12 @@ public struct Show: Decodable {
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decode(String.self, forKey: .name)
         let mediaImage = try values.decode(MediaImage?.self, forKey: .image)
+        // Using medium images, to improve mobile performance
         poster = URL(string: mediaImage?.mediumImage ?? "")
         schedule = try values.decode(Schedule.self, forKey: .schedule)
         genres = try values.decode([String].self, forKey: .genres)
         let rawSummary = try values.decode(String?.self, forKey: .summary)
+        // The summary come with some HTML tags, so just decode it
         summary = rawSummary?.htmlDecoded
     }
 }

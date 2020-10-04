@@ -9,6 +9,7 @@ import Core
 import LocalAuthentication
 import PromiseKit
 
+// Provides authentication using touch ID or face ID
 public class BiometricsAuthProvider: AuthProvider {
     private let context = LAContext()
     private var error: NSError?
@@ -17,6 +18,7 @@ public class BiometricsAuthProvider: AuthProvider {
     public init() {
     }
 
+    // Checks if the device supports touch ID or face ID
     public var authType: AuthType {
         let isEnabled = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
         if #available(iOS 11, *) {
@@ -26,6 +28,7 @@ public class BiometricsAuthProvider: AuthProvider {
                 return .faceID
             }
         } else {
+            // There was no face ID until iOS 11
             if isEnabled {
                 return .touchID
             }
@@ -33,6 +36,8 @@ public class BiometricsAuthProvider: AuthProvider {
         return .unsupported
     }
 
+    // Asks to authenticate, then returns a promise
+    // indicating if it succeeded
     public func authenticate() -> Promise<Bool> {
         Promise { [weak self] seal in
             let reason = "Authenticate with the app"

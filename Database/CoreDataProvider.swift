@@ -10,6 +10,7 @@ import CoreData
 import PromiseKit
 
 public class CoreDataProvider {
+    // Setup core data stack from scratch as we need to support iOS 9
     private static var applicationDocumentsDirectory: URL = {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         guard let lastUrl = urls.last else {
@@ -44,8 +45,8 @@ public class CoreDataProvider {
     }()
 
     @objc private func save() {
-        if Self.context.hasChanges {
-            Self.context.perform {
+        Self.context.perform {
+            if Self.context.hasChanges {
                 try? Self.context.save()
             }
         }
@@ -53,12 +54,15 @@ public class CoreDataProvider {
 
     static var context: NSManagedObjectContext = {
         let coordinator = persistentStoreCoordinator
+        // Using private queue to improve the performance
+        // in the main thread
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
 
     public init() {
+        // Saving the context only when necessary
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.willTerminateNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }

@@ -30,10 +30,15 @@ public struct Episode: Decodable {
         name = try values.decode(String.self, forKey: .name)
         number = try values.decode(Int.self, forKey: .number)
         let seasonNumber = try values.decode(Int.self, forKey: .season)
+        // Making sure, the season number starts on zero
+        // this helps to split the episodes into seasons
+        // and display properly in the UI later
         season = max(seasonNumber-1, 0)
         let rawSummary = try values.decode(String?.self, forKey: .summary)
+        // The summary come with some HTML tags, so just decode it
         summary = rawSummary?.htmlDecoded
         let mediaImage = try values.decode(MediaImage?.self, forKey: .image)
+        // Using medium images, to improve mobile performance
         image = URL(string: mediaImage?.mediumImage ?? "")
     }
 }

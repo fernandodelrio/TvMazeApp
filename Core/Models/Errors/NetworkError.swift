@@ -13,6 +13,5 @@ public enum NetworkError: String, Error {
     case dataNotFound = "The data was not found"
     case lastPageAchieved = "The last page was achieved"
     case parseFailed = "The parsing of thee network response failed"
-    case requestFailed = "The request failed"
     case rateLimitAchieved = "The rate limit was achieved"
 }
