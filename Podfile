@@ -3,6 +3,7 @@ platform :ios, '9.3'
 def commonPods
   use_frameworks!
   pod 'PromiseKit', '~> 6.8'
+  pod 'SwiftLint', '~> 0.40.3'
 end
 
 target 'App' do

@@ -12,10 +12,14 @@ import UIKit
 // This table view cell, is re-used on many table views of the app
 // it can display image + text and optionally a favorite button
 class MediaTableViewCell: UITableViewCell {
+    var viewModel = MediaTableViewCellViewModel()
     @IBOutlet weak var mediaImageView: AsyncImageView?
     @IBOutlet weak var descriptionLabel: UILabel?
     @IBOutlet weak var favoriteButton: UIButton?
-    var viewModel = MediaTableViewCellViewModel()
+
+    @IBAction private func didTapFavoriteButton(_ sender: Any) {
+        viewModel.favorite()
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,14 +34,10 @@ class MediaTableViewCell: UITableViewCell {
             self?.favoriteButton?.isHidden = !isFavoriteEnabled
         }
     }
-    
+
     // Change the image on the favorite button
     private func setFavoriteButtonState(isFavorited: Bool) {
         let image = isFavorited ? AppConstants.starFilledImage : AppConstants.starImage
         favoriteButton?.setBackgroundImage(image, for: .normal)
-    }
-    
-    @IBAction func didTapFavoriteButton(_ sender: Any) {
-        viewModel.favorite()
     }
 }

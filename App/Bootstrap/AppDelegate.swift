@@ -5,9 +5,9 @@
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 9/30/20.
 //
 
-import UIKit
 import Core
 import Database
+import UIKit
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?

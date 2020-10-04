@@ -9,11 +9,11 @@ import Core
 import UIKit
 
 class ShowListViewController: UIViewController {
+    lazy var viewModel = ShowListViewModel()
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var bottomLoadingView: UIView?
     @IBOutlet weak var searchBar: UISearchBar?
-    lazy var viewModel = ShowListViewModel()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = MainTab.shows.title
@@ -116,7 +116,7 @@ extension ShowListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.data.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showCell", for: indexPath) as? MediaTableViewCell
         let show = viewModel.data[indexPath.row].show

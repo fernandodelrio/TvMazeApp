@@ -1,0 +1,106 @@
+line_length: 240
+
+type_name:
+  min_length: 3
+  max_length: 40
+  excluded:
+    - Id
+
+closure_body_length: 100
+
+cyclomatic_complexity:
+  warning: 5
+  error: 6
+
+identifier_name:
+  min_length: 3
+  max_length: 30
+  excluded:
+    - id
+
+file_length: 300
+
+force_try:
+  severity: error
+
+implicitly_unwrapped_optional:
+  severity: error
+
+disabled_rules:
+  - unneeded_notification_center_removal
+  - nesting
+
+opt_in_rules:
+  - closure_end_indentation
+  - closure_spacing
+  - collection_alignment
+  - legacy_random
+  - literal_expression_end_indentation
+  - prohibited_super_call
+  - redundant_nil_coalescing
+  - redundant_type_annotation
+  - sorted_first_last
+  - sorted_imports
+  - static_operator
+  - toggle_bool
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - unused_import
+  - yoda_condition
+  - force_unwrapping
+  - empty_count
+  - first_where
+  - last_where
+  - strict_fileprivate
+  - contains_over_first_not_nil
+  - deployment_target
+  - discouraged_object_literal
+  - empty_string
+  - untyped_error_in_catch
+  - anyobject_protocol
+  - array_init
+  - closure_body_length
+  - contains_over_filter_count
+  - contains_over_filter_is_empty
+  - contains_over_range_nil_comparison
+  - discouraged_optional_boolean
+  - empty_collection_literal
+  - extension_access_modifier
+  - fallthrough
+  - file_types_order
+  - flatmap_over_map_reduce
+  - identical_operands
+  - implicit_return
+  - implicitly_unwrapped_optional
+  - joined_default_parameter
+  - legacy_multiple
+  - lower_acl_than_parent
+  - modifier_order
+  - multiline_arguments_brackets
+  - multiline_literal_brackets
+  - multiline_parameters
+  - operator_usage_whitespace
+  - operator_whitespace
+  - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  - private_action
+  - raw_value_for_camel_cased_codable_enum
+  - reduce_into
+  - single_test_class
+  - trailing_closure
+  - type_contents_order
+  - unowned_variable_capture
+  - unused_declaration
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+  - xct_specific_matcher
+
+included:
+  - App
+  - Auth
+  - Cloud
+  - Core
+  - Database
+  - Secure

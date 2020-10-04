@@ -80,7 +80,7 @@ class PersonDetailViewModel {
                 self?.onLoadingChange?(false)
             }.cauterize()
     }
-    
+
     // Adds or removes the favorite from the database
     func favorite(index: Int) {
         let favorite = Favorite(show: data[index].show)

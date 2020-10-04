@@ -23,13 +23,16 @@ public class KeychainSecretProvider: SecretProvider {
     }
 
     public func retrieve(key: SecretKey) -> String {
+        guard let booleanTrue = kCFBooleanTrue else {
+            return ""
+        }
         let query = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key.rawValue,
-            kSecReturnData as String: kCFBooleanTrue!,
+            kSecReturnData as String: booleanTrue,
             kSecMatchLimit as String: kSecMatchLimitOne
         ] as [String: Any]
-        var dataTypeRef: AnyObject? = nil
+        var dataTypeRef: AnyObject?
         let status: OSStatus = SecItemCopyMatching(query as CFDictionary, &dataTypeRef)
         if status == noErr {
             let data = (dataTypeRef as? Data?) ?? Data()

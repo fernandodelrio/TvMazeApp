@@ -15,7 +15,7 @@ public class CoreDataProvider {
         guard let lastUrl = urls.last else {
             fatalError("Failed to retrieve applicationDocumentsDirectory")
         }
-        return urls[urls.count-1]
+        return urls[urls.count - 1]
     }()
 
     private static var managedObjectModel: NSManagedObjectModel = {
@@ -43,14 +43,6 @@ public class CoreDataProvider {
         return coordinator
     }()
 
-    @objc private func save() {
-        Self.context.perform {
-            if Self.context.hasChanges {
-                try? Self.context.save()
-            }
-        }
-    }
-
     static var context: NSManagedObjectContext = {
         let coordinator = persistentStoreCoordinator
         // Using private queue to improve the performance
@@ -64,6 +56,14 @@ public class CoreDataProvider {
         // Saving the context only when necessary
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.willTerminateNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(save), name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
+
+    @objc private func save() {
+        Self.context.perform {
+            if Self.context.hasChanges {
+                try? Self.context.save()
+            }
+        }
     }
 
     deinit {

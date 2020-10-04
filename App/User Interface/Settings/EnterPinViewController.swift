@@ -8,13 +8,12 @@
 import UIKit
 
 class EnterPinViewController: UIViewController {
+    var viewModel = EnterPinViewModel()
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var enterPin1View: EnterPinView?
     @IBOutlet weak var enterPin2View: EnterPinView?
     @IBOutlet weak var enterPin3View: EnterPinView?
     @IBOutlet weak var enterPin4View: EnterPinView?
-
-    var viewModel = EnterPinViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +24,7 @@ class EnterPinViewController: UIViewController {
         enterPin1View?.textField.becomeFirstResponder()
         viewModel.load()
     }
-    
+
     @objc func textFieldEditingChanged(sender: UITextField?) {
         // Clear the input style
         enterPin1View?.updateInputStyle(isError: false)

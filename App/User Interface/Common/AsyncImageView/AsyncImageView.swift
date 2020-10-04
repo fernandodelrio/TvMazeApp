@@ -33,7 +33,7 @@ class AsyncImageView: UIView {
     // This method will be used while the table view
     // is getting scrolled, avoiding flickering
     // by the cell reuse + async load
-    func setPlaceholder()  {
+    func setPlaceholder() {
         imageView.image = AppConstants.placeholderImage
         showLoading()
     }

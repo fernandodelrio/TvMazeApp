@@ -30,7 +30,7 @@ class ShowListViewModel {
     var onLoadingNewPageChange: ((_ isLoading: Bool) -> Void)?
     // The shows and the favorite status from each one
     var data: [(show: Show, isFavorited: Bool)] = []
-    
+
     func load() {
         // Increments the page and then loads new data
         // as it starts with zero, the first call will

@@ -37,7 +37,7 @@ public class NetworkRequestProvider: RequestProvider {
 
     private func dataTaskPromise(url: URL) -> Promise<NetworkResponse> {
         Promise { seal in
-            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            let task = URLSession.shared.dataTask(with: url) { data, response, _ in
                 guard let data = data else {
                     seal.reject(NetworkError.dataNotFound)
                     return

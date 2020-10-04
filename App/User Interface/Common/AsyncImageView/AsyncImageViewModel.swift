@@ -17,7 +17,7 @@ class AsyncImageViewModel {
     private var loadImageOperation: Operation?
     private var cancelPromise: (() -> Void)?
 
-    func loadImage(_ url: URL?) -> Promise<UIImage?>  {
+    func loadImage(_ url: URL?) -> Promise<UIImage?> {
         // Cancel any previous operation
         cancelOperations()
         // No url informed, use the placeholder

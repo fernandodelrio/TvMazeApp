@@ -34,10 +34,6 @@ class MainTabViewController: UITabBarController {
         viewModel.load()
     }
 
-    deinit {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
     @objc private func applicationDidEnterBackground() {
         viewModel.enterBackground()
     }
@@ -66,14 +62,18 @@ class MainTabViewController: UITabBarController {
     private func setupListeners() {
         // The authentication validations will happen when the user opens the app
         // for the first time or come back from background
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(applicationDidBecomeActive),
-                                               name: UIApplication.didBecomeActiveNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(applicationDidEnterBackground),
-                                               name: UIApplication.didEnterBackgroundNotification,
-                                               object: nil)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applicationDidBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(applicationDidEnterBackground),
+            name: UIApplication.didEnterBackgroundNotification,
+            object: nil
+        )
     }
 
     private func setupBiometricsOverlayView() {
@@ -83,5 +83,9 @@ class MainTabViewController: UITabBarController {
         biometricsOverlayView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         biometricsOverlayView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         biometricsOverlayView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

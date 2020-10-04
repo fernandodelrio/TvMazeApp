@@ -15,9 +15,6 @@ public class BiometricsAuthProvider: AuthProvider {
     private var error: NSError?
     private let reason = "Authenticate with the app".localized
 
-    public init() {
-    }
-
     // Checks if the device supports touch ID or face ID
     public var authType: AuthType {
         let isEnabled = context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error)
@@ -36,10 +33,14 @@ public class BiometricsAuthProvider: AuthProvider {
         return .unsupported
     }
 
+    public init() {
+    }
+
     // Asks to authenticate, then returns a promise
     // indicating if it succeeded
     public func authenticate() -> Promise<Bool> {
-        Promise { [weak self] seal in            self?.context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, _ in
+        Promise { [weak self] seal in
+            self?.context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, _ in
                 seal.fulfill(success)
             }
         }

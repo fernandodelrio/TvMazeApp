@@ -9,6 +9,7 @@ import Core
 import UIKit
 
 class SettingsViewController: UIViewController {
+    var viewModel = SettingsViewModel()
     @IBOutlet weak var enablePinStackView: UIStackView?
     @IBOutlet weak var enableBiometricsStackView: UIStackView?
     @IBOutlet weak var enablePinLabel: UILabel?
@@ -16,14 +17,20 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var enablePinSwitch: UISwitch?
     @IBOutlet weak var enableBiometricsSwitch: UISwitch?
 
-    var viewModel = SettingsViewModel()
-
     override func viewDidLoad() {
         super.viewDidLoad()
         enablePinLabel?.text = "Enable PIN".localized
         navigationItem.title = MainTab.settings.title
         setupBindings()
         viewModel.load()
+    }
+
+    @IBAction private func enablePinValueChanged(_ sender: Any) {
+        viewModel.updateSettings()
+    }
+
+    @IBAction private func enableBiometricsValueChanged(_ sender: Any) {
+        viewModel.updateSettings()
     }
 
     private func setupBindings() {
@@ -48,13 +55,5 @@ class SettingsViewController: UIViewController {
         viewModel.onCreateNewPin = { [weak self] in
             self?.performSegue(withIdentifier: "settingsToPinSegue", sender: nil)
         }
-    }
-
-    @IBAction func enablePinValueChanged(_ sender: Any) {
-        viewModel.updateSettings()
-    }
-
-    @IBAction func enableBiometricsValueChanged(_ sender: Any) {
-        viewModel.updateSettings()
     }
 }

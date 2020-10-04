@@ -26,6 +26,6 @@ public extension String {
 
     // Encode URL strings, adding percent encoding
     var urlEncoded: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
+        addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
 }

@@ -9,9 +9,9 @@ import Core
 import UIKit
 
 class FavoriteListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView?
     var viewModel = FavoriteListViewModel()
-    
+    @IBOutlet weak var tableView: UITableView?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = MainTab.favorites.title
@@ -104,7 +104,7 @@ extension FavoriteListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.data.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteCell", for: indexPath) as? MediaTableViewCell
         let show = viewModel.data[indexPath.row].show
@@ -127,4 +127,3 @@ extension FavoriteListViewController: UITableViewDataSource {
         return cell ?? UITableViewCell()
     }
 }
-

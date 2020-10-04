@@ -9,10 +9,9 @@ import Core
 import UIKit
 
 class PersonListViewController: UIViewController {
+    var viewModel = PersonListViewModel()
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var searchBar: UISearchBar?
-    
-    var viewModel = PersonListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,7 +105,7 @@ extension PersonListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.data.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personCell", for: indexPath) as? MediaTableViewCell
         let person = viewModel.data[indexPath.row]

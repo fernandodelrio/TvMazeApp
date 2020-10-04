@@ -33,7 +33,7 @@ public class CoreDataSettingsProvider: SettingsProvider {
             }
         }
     }
-    
+
     public func retrieveSettings() -> Promise<Settings> {
         Promise { seal in
             // Calling context's perform as we are in a private queue

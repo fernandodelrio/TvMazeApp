@@ -8,10 +8,10 @@
 import UIKit
 
 class PersonDetailViewController: UIViewController {
+    var viewModel = PersonDetailViewModel()
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var mediaImageView: AsyncImageView?
     @IBOutlet weak var tableView: UITableView?
-    var viewModel = PersonDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +94,7 @@ extension PersonDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.data.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personDetailsCell", for: indexPath) as? MediaTableViewCell
         let show = viewModel.data[indexPath.row].show

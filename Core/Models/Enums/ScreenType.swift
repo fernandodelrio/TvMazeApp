@@ -10,15 +10,15 @@ import Foundation
 // Family of devices, based on the screen size
 // Useful create specific layouts
 public enum ScreenType {
-    case iPhone_5_5S_5C
-    case iPhone_6_6S_7_8
-    case iPhone_6Plus_6SPlus_7Plus_8Plus
-    case iPhone_X_XS_11_Pro
-    case iPhone_XSMax_11ProMax
-    case iPhone_XR_11
+    case iPhone5to5C // 5, 5S, 5C
+    case iPhone6to8 // 6, 6S, 7, 8
+    case iPhone6to8Plus // 6Plus, 6SPlus, 7Plus, 8Plus
+    case iPhoneXto11Pro // X, XS, 11Pro
+    case iPhoneXSMaxTo11ProMax // XS Max, 11Pro Max
+    case iPhoneXRto11 // XR, 11
     case unknown
 
     public var isSmallScreen: Bool {
-        [.iPhone_5_5S_5C, .iPhone_6_6S_7_8].contains(self)
+        [.iPhone5to5C, .iPhone6to8].contains(self)
     }
 }

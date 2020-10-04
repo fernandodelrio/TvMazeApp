@@ -15,14 +15,12 @@ public class CoreDataFavoriteProvider: FavoriteProvider {
     public var onDataChange: ((_ favorites: [Favorite]) -> Void)?
 
     public init() {
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(contextObjectsDidChange(_:)),
-                                               name: Notification.Name.NSManagedObjectContextObjectsDidChange,
-                                               object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(contextObjectsDidChange(_:)),
+            name: Notification.Name.NSManagedObjectContextObjectsDidChange,
+            object: nil
+        )
     }
 
     public func save(_ favorite: Favorite) -> Promise<Void> {
@@ -78,5 +76,9 @@ public class CoreDataFavoriteProvider: FavoriteProvider {
             .done { [weak self] favorites in
                 self?.onDataChange?(favorites)
             }.cauterize()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }

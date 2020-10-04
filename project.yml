@@ -3,6 +3,8 @@ options:
   bundleIdPrefix: br.com.fernandodelrio
   deploymentTarget:
     iOS: 9.3
+settings:
+  SWIFT_VERSION: 5.0
 targets:
   App:
     type: application
@@ -16,6 +18,9 @@ targets:
       - target: Database
       - target: Secure
       - target: Auth
+    postCompileScripts:
+      - script: ${PODS_ROOT}/SwiftLint/swiftlint
+        name: Swiftlint
   Core:
     type: framework
     platform: iOS
@@ -52,6 +57,8 @@ targets:
     sources: [UnitTests]
     dependencies:
       - target: App
+    settings:
+      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/TvMaze.app/TvMaze"
   UITests:
     type: bundle.ui-testing
     platform: iOS

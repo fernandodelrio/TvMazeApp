@@ -9,6 +9,7 @@ import Core
 import UIKit
 
 class ShowDetailViewController: UIViewController {
+    var viewModel = ShowDetailViewModel()
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var mediaImageView: AsyncImageView?
     @IBOutlet weak var favoriteButton: UIButton?
@@ -17,8 +18,6 @@ class ShowDetailViewController: UIViewController {
     @IBOutlet weak var summaryTextView: UITextView?
     @IBOutlet weak var tableView: UITableView?
     @IBOutlet weak var summaryTextViewHeight: NSLayoutConstraint?
-    
-    var viewModel = ShowDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +33,10 @@ class ShowDetailViewController: UIViewController {
         viewModel.appear()
     }
 
+    @IBAction private func didTapFavoriteButton(_ sender: Any) {
+        viewModel.favorite()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as? EpisodeDetailViewController
         let indexPath = viewModel.selectedIndexPathForNavigation
@@ -41,10 +44,6 @@ class ShowDetailViewController: UIViewController {
         let season = keys?[indexPath.section] ?? 1
         let episode = viewModel.show?.episodesBySeason[season]?[indexPath.row]
         destination?.viewModel.episode = episode
-    }
-
-    @IBAction func didTapFavoriteButton(_ sender: Any) {
-        viewModel.favorite()
     }
 
     // When the table view stops scrolling,
@@ -169,7 +168,7 @@ extension ShowDetailViewController: UITableViewDataSource {
         let season = keys?[section] ?? 1
         return viewModel.show?.episodesBySeason[season]?.count ?? 0
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "showDetailsCell", for: indexPath) as? MediaTableViewCell
         let keys = viewModel.show?.seasonKeys

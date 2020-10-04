@@ -9,11 +9,11 @@ import Core
 import PromiseKit
 
 public class NetworkPersonProvider: PersonProvider {
+    // This queue is used to parse the response out of the main thread
+    static let queue = DispatchQueue(label: "NetworkPersonProvider")
     lazy var requestProvider = Dependency.resolve(RequestProvider.self)
     lazy var showProvider = Dependency.resolve(ShowProvider.self)
     lazy var decoder = JSONDecoder()
-    // This queue is used to parse the response out of the main thread
-    static let queue = DispatchQueue(label: "NetworkPersonProvider")
 
     public init() {
     }
