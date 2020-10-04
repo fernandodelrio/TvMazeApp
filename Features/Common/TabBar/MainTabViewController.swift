@@ -1,6 +1,6 @@
 //
 //  MainTabViewController.swift
-//  App
+//  Features
 //
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/3/20.
 //

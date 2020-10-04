@@ -1,6 +1,6 @@
 //
 //  FavoriteListViewController.swift
-//  App
+//  Features
 //
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 10/1/20.
 //

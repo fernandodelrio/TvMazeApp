@@ -1,6 +1,6 @@
 //
 //  PersonListViewController.swift
-//  App
+//  Features
 //
 //  Created by Fernando Henrique Bonfim Moreno Del Rio on 9/30/20.
 //
