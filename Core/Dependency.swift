@@ -30,4 +30,9 @@ public class Dependency {
             fatalError("Missing register dependency \(key)")
         }
     }
+
+    // Clean the registry (used on test tear down)
+    public static func unregisterAll() {
+        registry = [:]
+    }
 }

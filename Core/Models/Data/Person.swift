@@ -47,4 +47,11 @@ public struct Person: Decodable {
         image = personData.image
         shows = personData.shows
     }
+
+    public init() {
+        id = 0
+        name = ""
+        image = nil
+        shows = []
+    }
 }

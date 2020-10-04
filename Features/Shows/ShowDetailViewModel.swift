@@ -9,7 +9,6 @@ import Core
 import PromiseKit
 
 class ShowDetailViewModel {
-    private lazy var episodeProvider = Dependency.resolve(EpisodeProvider.self)
     private lazy var showProvider = Dependency.resolve(ShowProvider.self)
     private lazy var favoriteProvider = Dependency.resolve(FavoriteProvider.self)
     // This flag helps to avoid loading the data twice

@@ -41,4 +41,14 @@ public struct Show: Decodable {
         // The summary come with some HTML tags, so just decode it
         summary = rawSummary?.htmlDecoded
     }
+
+    public init() {
+        id = 0
+        name = ""
+        poster = nil
+        schedule = Schedule(time: "", days: [])
+        genres = []
+        summary = nil
+        episodesBySeason = [:]
+    }
 }

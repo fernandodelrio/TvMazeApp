@@ -8,35 +8,55 @@
 import XCTest
 
 class AppUITests: XCTestCase {
-
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // UI tests must launch the application that they test.
+    func testPeopleToEpisodeFlow() {
+        // Launch
         let app = XCUIApplication()
         app.launch()
-
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testLaunchPerformance() {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTOSSignpostMetric.applicationLaunch]) {
-                XCUIApplication().launch()
-            }
-        }
+        // Navigate to people tab
+        let peopleTab = app.tabBars.buttons.element(boundBy: 1)
+        XCTAssertTrue(peopleTab.waitForExistence(timeout: 5))
+        peopleTab.tap()
+        // Search for a person
+        let searchField = app.searchFields.firstMatch
+        XCTAssertTrue(searchField.waitForExistence(timeout: 5))
+        searchField.tap()
+        searchField.typeText("David Tennant")
+        let searchButton = app.buttons
+            .matching(identifier: "Search")
+            .firstMatch
+        XCTAssertTrue(searchField.waitForExistence(timeout: 5))
+        searchButton.tap()
+        // Navigate to person details
+        let personCell = app.tables.cells.staticTexts["David Tennant"]
+        XCTAssertTrue(personCell.waitForExistence(timeout: 5))
+        personCell.tap()
+        // Get serie cell
+        let serieCell = app.tables.cells.containing(.staticText, identifier: "Doctor Who").firstMatch
+        XCTAssertTrue(serieCell.waitForExistence(timeout: 5))
+        // Validate it's not favorited
+        XCTAssertEqual(serieCell.buttons.firstMatch.label, "star")
+        // Favorite it
+        serieCell.buttons.firstMatch.tap()
+        // Navigate to details
+        serieCell.tap()
+        let detailsSerieButton = app.buttons.matching(identifier: "star filled").firstMatch
+        // Validate it's favorited
+        XCTAssertTrue(detailsSerieButton.waitForExistence(timeout: 5))
+        // Unfavorite it
+        detailsSerieButton.tap()
+        // Validate episode exists
+        let episodeCell = app.tables.cells.staticTexts["Rose"]
+        XCTAssertTrue(episodeCell.waitForExistence(timeout: 5))
+        // Navigate to episode
+        episodeCell.tap()
+        let summary = "Rose Tyler meets a mysterious stranger called the Doctor, and realises Earth is in danger."
+        let summaryElement = app.staticTexts
+            .element(matching: NSPredicate(format: "label CONTAINS %@", summary))
+        // Validate the summary is correct
+        XCTAssertTrue(summaryElement.waitForExistence(timeout: 5))
     }
 }

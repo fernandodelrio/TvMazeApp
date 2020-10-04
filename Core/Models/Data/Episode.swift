@@ -36,4 +36,13 @@ public struct Episode: Decodable {
         // Using medium images, to improve mobile performance
         image = URL(string: mediaImage?.mediumImage ?? "")
     }
+
+    public init() {
+        id = 0
+        name = ""
+        number = 0
+        season = 0
+        summary = nil
+        image = nil
+    }
 }
