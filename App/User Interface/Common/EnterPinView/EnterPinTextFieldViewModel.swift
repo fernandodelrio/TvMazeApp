@@ -10,6 +10,7 @@ import Foundation
 class EnterPinTextFieldViewModel {
     var onBackspacePressed: (() -> Void)?
 
+    // Just call back the provided closure
     func backspacePressed() {
         onBackspacePressed?()
     }

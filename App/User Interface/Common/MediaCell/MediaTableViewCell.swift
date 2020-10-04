@@ -9,30 +9,35 @@ import Core
 import PromiseKit
 import UIKit
 
+// This table view cell, is re-used on many table views of the app
+// it can display image + text and optionally a favorite button
 class MediaTableViewCell: UITableViewCell {
     @IBOutlet weak var mediaImageView: AsyncImageView?
     @IBOutlet weak var descriptionLabel: UILabel?
     @IBOutlet weak var favoriteButton: UIButton?
-    var onFavoriteTap: (() -> Void)?
+    var viewModel = MediaTableViewCellViewModel()
 
-    var isFavoriteEnabled = false {
-        didSet {
-            favoriteButton?.isHidden = !isFavoriteEnabled
-        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupBindings()
     }
-    var isFavorited = false {
-        didSet {
-            setFavoriteButtonState(isFavorited: isFavorited)
+
+    private func setupBindings() {
+        viewModel.onFavoritedChange = { [weak self] isFavorited in
+            self?.setFavoriteButtonState(isFavorited: isFavorited)
+        }
+        viewModel.onFavoriteEnabledChange = { [weak self] isFavoriteEnabled in
+            self?.favoriteButton?.isHidden = !isFavoriteEnabled
         }
     }
     
+    // Change the image on the favorite button
     private func setFavoriteButtonState(isFavorited: Bool) {
         let image = isFavorited ? UIImage(named: "star-filled") : UIImage(named: "star")
         favoriteButton?.setBackgroundImage(image, for: .normal)
     }
     
     @IBAction func didTapFavoriteButton(_ sender: Any) {
-        isFavorited.toggle()
-        onFavoriteTap?()
+        viewModel.favorite()
     }
 }

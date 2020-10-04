@@ -41,17 +41,17 @@ class Injector {
         Dependency.register(FavoriteProvider.self) {
             CoreDataFavoriteProvider()
         }
-        
+
+        Dependency.register(SettingsProvider.self) {
+            CoreDataSettingsProvider()
+        }
+
         Dependency.register(SecretProvider.self) {
             KeychainSecretProvider()
         }
 
         Dependency.register(AuthProvider.self) {
             BiometricsAuthProvider()
-        }
-
-        Dependency.register(SettingsProvider.self) {
-            CoreDataSettingsProvider()
         }
     }
 }

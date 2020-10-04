@@ -11,29 +11,11 @@ class PersonDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel?
     @IBOutlet weak var mediaImageView: AsyncImageView?
     @IBOutlet weak var tableView: UITableView?
-
     var viewModel = PersonDetailViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.onLoadingChange = { [weak self] isLoading in
-            self?.nameLabel?.isHidden = isLoading
-            self?.mediaImageView?.isHidden = isLoading
-            let dataCount = self?.viewModel.data.count ?? 0
-            self?.tableView?.isHidden = isLoading || dataCount == 0
-            if !isLoading, dataCount == 0 {
-                self?.view.showMessageLabel("No shows to display.")
-            } else {
-                self?.view.hideMessageLabel()
-            }
-            isLoading ? self?.view.showLoading() : self?.view.hideLoading()
-        }
-
-        viewModel.onDataChange = { [weak self] in
-            self?.nameLabel?.text = self?.viewModel.person?.name
-            self?.mediaImageView?.loadImage(self?.viewModel.person?.image)
-            self?.tableView?.reloadData()
-        }
+        setupBindings()
         viewModel.load()
     }
 
@@ -50,16 +32,44 @@ class PersonDetailViewController: UIViewController {
         destination?.viewModel.isFavorited = isFavorited
     }
 
-    func loadImages() {
+    // When the table view stops scrolling,
+    // this will load the images. This helps
+    // to avoid the flickering of
+    // async + cell reuse
+    private func loadImages() {
         tableView?.indexPathsForVisibleRows?.forEach {
             let show = viewModel.data[$0.row].show
             let cell = tableView?.cellForRow(at: $0) as? MediaTableViewCell
             cell?.mediaImageView?.loadImage(show.poster)
         }
     }
+
+    private func setupBindings() {
+        viewModel.onLoadingChange = { [weak self] isLoading in
+            self?.nameLabel?.isHidden = isLoading
+            self?.mediaImageView?.isHidden = isLoading
+            let dataCount = self?.viewModel.data.count ?? 0
+            self?.tableView?.isHidden = isLoading || dataCount == 0
+            // When the loading finishes and there's no data
+            // show a proper message
+            if !isLoading, dataCount == 0 {
+                self?.view.showMessageLabel("No shows to display.")
+            } else {
+                self?.view.hideMessageLabel()
+            }
+            isLoading ? self?.view.showLoading() : self?.view.hideLoading()
+        }
+        viewModel.onDataChange = { [weak self] in
+            self?.nameLabel?.text = self?.viewModel.person?.name
+            self?.mediaImageView?.loadImage(self?.viewModel.person?.image)
+            self?.tableView?.reloadData()
+        }
+    }
 }
 
 extension PersonDetailViewController: UITableViewDelegate {
+    // These scroll view methods are called indicating
+    // the user is not scrolling the table view
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         loadImages()
     }
@@ -72,6 +82,7 @@ extension PersonDetailViewController: UITableViewDelegate {
         "Participated on these shows"
     }
 
+    // Navigate to the shows the person participated
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.selectedIndexForNavigation = indexPath.row
         performSegue(withIdentifier: "personDetailToShowDetailSegue", sender: nil)
@@ -87,15 +98,19 @@ extension PersonDetailViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "personDetailsCell", for: indexPath) as? MediaTableViewCell
         let show = viewModel.data[indexPath.row].show
         let isFavorited = viewModel.data[indexPath.row].isFavorited
-        cell?.isFavorited = isFavorited
-        cell?.isFavoriteEnabled = true
+        cell?.viewModel.isFavorited = isFavorited
+        cell?.viewModel.isFavoriteEnabled = true
+        // If the table view is scrolling, set a placeholder
+        // Otherwise, loads the image asynchronously
         if tableView.isDragging || tableView.isDecelerating {
             cell?.mediaImageView?.setPlaceholder()
         } else {
             cell?.mediaImageView?.loadImage(show.poster)
         }
         cell?.descriptionLabel?.text = show.name
-        cell?.onFavoriteTap = { [weak self] in
+        // When there's a tap on a favorite
+        // ask the view model to handle
+        cell?.viewModel.onFavoriteTap = { [weak self] in
             self?.viewModel.favorite(index: indexPath.row)
         }
         return cell ?? UITableViewCell()

@@ -108,6 +108,7 @@
 		D8390A3E2528FAEC0025C699 /* EnterPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A3D2528FAEC0025C699 /* EnterPinView.swift */; };
 		D8390A402528FB270025C699 /* EnterPinTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A3F2528FB270025C699 /* EnterPinTextFieldViewModel.swift */; };
 		D8390A422528FFB60025C699 /* EnterPinTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8390A412528FFB60025C699 /* EnterPinTextFieldView.swift */; };
+		D83FCC8325294B380008CCBD /* MediaTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83FCC8225294B380008CCBD /* MediaTableViewCellViewModel.swift */; };
 		DD17F5EAC9E6CD875ED4094E651DC6E1 /* NetworkEpisodeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70507CA35C6BB9093958D35CB8103CC1 /* NetworkEpisodeProvider.swift */; };
 		DDC5E371A6E6AE4E800F8A7A2BCF55E2 /* CoreDataFavoriteProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C2D4EFEB9A5F6ED7AAFAE894C46B9E /* CoreDataFavoriteProvider.swift */; };
 		DEE159894D6EBA2A12B58ADD0667FD80 /* ShowDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B551F85A1E16DDAA4ACCF6F4FE7DC56 /* ShowDetailViewModel.swift */; };
@@ -388,6 +389,7 @@
 		D8390A3D2528FAEC0025C699 /* EnterPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinView.swift; sourceTree = "<group>"; };
 		D8390A3F2528FB270025C699 /* EnterPinTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinTextFieldViewModel.swift; sourceTree = "<group>"; };
 		D8390A412528FFB60025C699 /* EnterPinTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPinTextFieldView.swift; sourceTree = "<group>"; };
+		D83FCC8225294B380008CCBD /* MediaTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		DEAD1CDFE94336B294261653A0D39723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E0F74213990285C356B4E05B5C6CCC98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E46360840748C033FED0E1ED9123B8A3 /* PersonListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewController.swift; sourceTree = "<group>"; };
@@ -692,7 +694,7 @@
 		81934879F81B3551860EEDD5C8DA107D /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				D8390A3C2528FADA0025C699 /* PinTextField */,
+				D8390A3C2528FADA0025C699 /* EnterPinView */,
 				D8390A262528B3310025C699 /* TabBar */,
 				AFA5DE32957BAD17743D7E15C04C3E4A /* AsyncImageView */,
 				BC3CC0DF29C53EAB4F289FFA77FF4238 /* MediaCell */,
@@ -800,6 +802,7 @@
 			isa = PBXGroup;
 			children = (
 				EEFA897239D61B92EA487AC6ECDE95C3 /* MediaTableViewCell.swift */,
+				D83FCC8225294B380008CCBD /* MediaTableViewCellViewModel.swift */,
 			);
 			path = MediaCell;
 			sourceTree = "<group>";
@@ -846,14 +849,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		D8390A3C2528FADA0025C699 /* PinTextField */ = {
+		D8390A3C2528FADA0025C699 /* EnterPinView */ = {
 			isa = PBXGroup;
 			children = (
 				D8390A3D2528FAEC0025C699 /* EnterPinView.swift */,
 				D8390A412528FFB60025C699 /* EnterPinTextFieldView.swift */,
 				D8390A3F2528FB270025C699 /* EnterPinTextFieldViewModel.swift */,
 			);
-			path = PinTextField;
+			path = EnterPinView;
 			sourceTree = "<group>";
 		};
 		DDF6F58B9C7A4D4EB2CE88ADD2D07E95 /* Supporting Files */ = {
@@ -1417,6 +1420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8390A282528B3470025C699 /* MainTabViewController.swift in Sources */,
+				D83FCC8325294B380008CCBD /* MediaTableViewCellViewModel.swift in Sources */,
 				D8390A2A2528B5940025C699 /* MainTabViewModel.swift in Sources */,
 				8B6F7438F0BA64DBB42FC0403FBA2F56 /* AppDelegate.swift in Sources */,
 				55CF8EE71D7010B444AE46BD18A512EF /* AsyncImageView.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 
 class MainTabViewController: UITabBarController {
+    // The main tabs of the app
     enum Tabs: Int {
         case shows
         case people
@@ -15,7 +16,9 @@ class MainTabViewController: UITabBarController {
         case settings
     }
 
-    lazy var authenticationLayerView: UIView = {
+    // This view hides the app content, when
+    // touch ID or face ID is being validated
+    lazy var biometricsOverlayView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.isHidden = true
@@ -26,26 +29,10 @@ class MainTabViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAuthenticationLayerView()
-        viewModel.onDataChange = { [weak self] favorites in
-            let badgeValue = favorites.isEmpty ? nil : "\(favorites.count)"
-            self?.tabBar.items?[Tabs.favorites.rawValue].badgeValue = badgeValue
-        }
-        viewModel.onPinRequest = { [weak self] in
-            self?.performSegue(withIdentifier: "mainTabToPinSegue", sender: nil)
-        }
-        viewModel.onUpdateAuthLayer = { [weak self] isVisible in
-            self?.authenticationLayerView.isHidden = !isVisible
-        }
+        setupBiometricsOverlayView()
+        setupBindings()
+        setupListeners()
         viewModel.load()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(applicationDidBecomeActive),
-                                               name: UIApplication.didBecomeActiveNotification,
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(applicationDidEnterBackground),
-                                               name: UIApplication.didEnterBackgroundNotification,
-                                               object: nil)
     }
 
     deinit {
@@ -60,12 +47,42 @@ class MainTabViewController: UITabBarController {
         viewModel.becomeActive()
     }
 
-    private func setupAuthenticationLayerView() {
-        view.addSubview(authenticationLayerView)
-        authenticationLayerView.translatesAutoresizingMaskIntoConstraints = false
-        authenticationLayerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        authenticationLayerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        authenticationLayerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        authenticationLayerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    private func setupBindings() {
+        // Listen to changes on favorites database
+        // update the tab badge accordingly
+        viewModel.onDataChange = { [weak self] favorites in
+            let badgeValue = favorites.isEmpty ? nil : "\(favorites.count)"
+            self?.tabBar.items?[Tabs.favorites.rawValue].badgeValue = badgeValue
+        }
+        // Navigate to enter PIN and secure the user content
+        viewModel.onPinRequest = { [weak self] in
+            self?.performSegue(withIdentifier: "mainTabToPinSegue", sender: nil)
+        }
+        // Display the overlay before touch ID or face ID validation
+        viewModel.onUpdateBiometricsOverlay = { [weak self] isVisible in
+            self?.biometricsOverlayView.isHidden = !isVisible
+        }
+    }
+
+    private func setupListeners() {
+        // The authentication validations will happen when the user opens the app
+        // for the first time or come back from background
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidBecomeActive),
+                                               name: UIApplication.didBecomeActiveNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(applicationDidEnterBackground),
+                                               name: UIApplication.didEnterBackgroundNotification,
+                                               object: nil)
+    }
+
+    private func setupBiometricsOverlayView() {
+        view.addSubview(biometricsOverlayView)
+        biometricsOverlayView.translatesAutoresizingMaskIntoConstraints = false
+        biometricsOverlayView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        biometricsOverlayView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        biometricsOverlayView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        biometricsOverlayView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }

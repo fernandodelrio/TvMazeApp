@@ -19,7 +19,8 @@ class PersonListViewModel {
         onDataChange?()
         onSearchEmpty?(true)
     }
-    
+
+    // When there's an empty search, clear the view
     func searchTextDidChange(_ searchTerm: String) {
         if searchTerm.isEmpty {
             data = []
@@ -30,13 +31,20 @@ class PersonListViewModel {
 
     func searchTextDidEndEditing(_ searchTerm: String) {
         if !searchTerm.isEmpty {
+            // When there's a non empty search
+            // clear the view
             data = []
             onDataChange?()
+            // Show a loading
             onLoadingChange?(true)
+            // Retrieve the people data from
+            // the search term
             personProvider
                 .retrievePeople(searchTerm: searchTerm)
                 .done { [weak self] people in
                     self?.data = people
+                    // Notifies the data back to the
+                    // view and also hides the loading
                     self?.onDataChange?()
                     self?.onLoadingChange?(false)
                 }.cauterize()

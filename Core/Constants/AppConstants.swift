@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 public struct AppConstants {
-    static let messageLabelTag = 999
+    public static let messageLabelTag = 999
+    public static let bigSummarySize: CGFloat = 120.0
+    public static let smallSummarySize: CGFloat = 50.0
 }

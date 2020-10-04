@@ -11,6 +11,10 @@ import UIKit
 
 class AsyncImageView: UIView {
     var viewModel = AsyncImageViewModel()
+    // The imageView inside the view
+    // We need a container around
+    // to be able to add shadow and
+    // round corners simultaneously
     lazy var imageView: UIImageView = {
         let view = UIImageView()
         view.layer.cornerRadius = 10.0
@@ -20,24 +24,23 @@ class AsyncImageView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        layer.shadowColor = UIColor.gray.cgColor
-        layer.shadowOffset = .init(width: 3.0, height: 3.0)
-        layer.shadowRadius = 3.0
-        layer.shadowOpacity = 0.5
-        clipsToBounds = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(imageView)
-        imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        imageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        setupShadow()
+        setupImageViewConstraints()
     }
 
+    // Showing a placeholder with a loading on it
+    // until the image can be loaded properly.
+    // This method will be used while the table view
+    // is getting scrolled, avoiding flickering
+    // by the cell reuse + async load
     func setPlaceholder()  {
         imageView.image = viewModel.placeholderImage
         showLoading()
     }
 
+    // Loads the image asynchronously
+    // Displays a load and hides it when
+    // the process finishes
     func loadImage(_ url: URL?) {
         showLoading()
         viewModel
@@ -46,5 +49,22 @@ class AsyncImageView: UIView {
                 self?.hideLoading()
                 self?.imageView.image = image
             }.cauterize()
+    }
+
+    func setupShadow() {
+        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = .init(width: 3.0, height: 3.0)
+        layer.shadowRadius = 3.0
+        layer.shadowOpacity = 0.5
+        clipsToBounds = false
+    }
+
+    func setupImageViewConstraints() {
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(imageView)
+        imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        imageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
     }
 }

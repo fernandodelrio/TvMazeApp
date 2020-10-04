@@ -18,21 +18,27 @@ class FavoriteListViewModel {
     var data: [(show: Show, isFavorited: Bool)] = []
 
     func appear() {
+        // Starts with empty data and triggers
+        // a loading
         data = []
         onDataChange?()
         onLoadingChange?(true)
+        // Retrieve the favoritees
         favoriteProvider
             .retrieveFavorites()
             .done { [weak self] favorites in
+                // Get the shows, sorted by name
                 let shows = favorites.map { $0.show }
                 self?.data = shows
                     .map { ($0, true) }
                     .sorted { $0.show.name < $1.show.name }
+                // Sends the data to the view and hides the loading
                 self?.onDataChange?()
                 self?.onLoadingChange?(false)
             }.cauterize()
     }
 
+    // To unfavorite, just remove the entry from the database
     func unfavorite(index: Int) {
         let favorite = Favorite(show: data[index].show)
         data.remove(at: index)
