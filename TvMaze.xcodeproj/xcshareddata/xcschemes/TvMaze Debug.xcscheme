@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0D0DA7DBE8B5E5FADEF5711B9A4CEAED"
-               BuildableName = "TvMaze.app"
+               BuildableName = "App.app"
                BlueprintName = "App"
                ReferencedContainer = "container:TvMaze.xcodeproj">
             </BuildableReference>
@@ -124,17 +124,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "0D0DA7DBE8B5E5FADEF5711B9A4CEAED"
-            BuildableName = "TvMaze.app"
-            BlueprintName = "App"
-            ReferencedContainer = "container:TvMaze.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
+      codeCoverageEnabled = "YES"
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -157,6 +148,19 @@
             </BuildableReference>
          </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0D0DA7DBE8B5E5FADEF5711B9A4CEAED"
+            BuildableName = "App.app"
+            BlueprintName = "App"
+            ReferencedContainer = "container:TvMaze.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
+      <CommandLineArguments>
+      </CommandLineArguments>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -173,11 +177,15 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0DA7DBE8B5E5FADEF5711B9A4CEAED"
-            BuildableName = "TvMaze.app"
+            BuildableName = "App.app"
             BlueprintName = "App"
             ReferencedContainer = "container:TvMaze.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+      </CommandLineArguments>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -190,7 +198,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0D0DA7DBE8B5E5FADEF5711B9A4CEAED"
-            BuildableName = "TvMaze.app"
+            BuildableName = "App.app"
             BlueprintName = "App"
             ReferencedContainer = "container:TvMaze.xcodeproj">
          </BuildableReference>
