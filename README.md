@@ -1,4 +1,4 @@
-# ![alt text](https://raw.githubusercontent.com/fernandodelrio/TvMazeApp/master/Documentation/images/app-icon.png "App Icon") TvMaze App
+# ![](https://raw.githubusercontent.com/fernandodelrio/TvMazeApp/master/Documentation/images/app-icon.png "App Icon") TvMaze App
 
 This repository contains the code for an iOS app I built for a 5 days coding challenge. The idea was to build an iPhone app consuming an API that provides TV data about series, episodes and people.
 
@@ -63,7 +63,7 @@ I wish I could use apple's Combine framework here, as it's more standard, but th
 
 This framework setup is best described with the image below:
 
-![alt text](https://github.com/fernandodelrio/TvMazeApp/blob/master/Documentation/images/modules-strategy.png "Modules strategy")
+![](https://github.com/fernandodelrio/TvMazeApp/blob/master/Documentation/images/modules-strategy.png "Modules strategy")
 
 ## Core Data strategy
 
@@ -128,7 +128,7 @@ Regarding the UI Tests, I also didn't wrote test for all possible flows, but cre
 
 Even not reaching the all possible tests I could reach a good coverage of the most important frameworks:
 
-![alt text](https://raw.githubusercontent.com/fernandodelrio/TvMazeApp/master/Documentation/images/cove-coverage.png "Code coverage")
+![](https://raw.githubusercontent.com/fernandodelrio/TvMazeApp/master/Documentation/images/cove-coverage.png "Code coverage")
 
 ## Missing requirements
 
@@ -143,9 +143,13 @@ I was also unable to use Swift 3, because it's too old for my machine. Because o
 
 I am using Xcode 11.3.1 with Swift 5. Still I was able to support iOS 9 and this choice won't impact anything to the end user.
 
-## Finally, the user interface
+## Finally, the working app
 
-In this last section I will present a set of images of the app user interface, I hope you enjoy. Feel free to get the project and run to check it as well.
+In this last section I will put a link for a video demonstration of the app + a set of images of the app's user interface, I hope you enjoy. Feel free to get the project and run to check it yourself.
+
+### Demonstration video
+
+https://drive.google.com/file/d/1fdEFUziJvECuW6pAdpvnDn14NpIBxoDG/view?usp=sharing
 
 ### Shows list
 
