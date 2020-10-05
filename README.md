@@ -105,6 +105,16 @@ By using a simpler approach, the app worked fine on different device sizes. I ha
 that had too much information and because of that I created a variation for devices with smaller screens like iPhone SE and iPhone 8. On the episode details,
 some summaries were really large, and I make sure to put a scroll view, to avoid any issues to display larger contents, so there was no need to create a variation for different device sizes.
 
+## Project setup
+
+To setup the project I used 2 tools: Xcodegen (https://github.com/yonaskolb/XcodeGen) and CocoaPods (https://cocoapods.org). The first one is used to generate the structure of an xcode project following a spec file (really useful to avoid merge conflits on the project file). The second one, is part of the requirements of the challenge and I use to keep track of the third party libraries.
+
+Once the project is cloned you don't need to follow any special step to setup the project, it should be ready to use. But if you want to try the project generation just call the Makefile:
+
+```shell
+$ make project
+```
+
 ## Unit and UI Tests
 
 With all the strategy I mentioned above, unit testing was an easy task. The **Core** framework exposes an **Dependency** class that can be used to resolve any protocol exposed there: **ShowProvider**, 
