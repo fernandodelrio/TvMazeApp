@@ -116,6 +116,10 @@ But if you want to try the project generation just call the Makefile:
 $ make project
 ```
 
+## Swift Lint
+
+I set up Swift Lint in the project to validate I was following a set of good code practices. The setup of the swift lint rules are available in a **.swiftlint.yml** file.
+
 ## Unit and UI Tests
 
 With all the strategy I mentioned above, unit testing was an easy task. The **Core** framework exposes an **Dependency** class that can be used to resolve any protocol exposed there: **ShowProvider**, 
