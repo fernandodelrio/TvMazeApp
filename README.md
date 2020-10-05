@@ -109,7 +109,8 @@ some summaries were really large, and I make sure to put a scroll view, to avoid
 
 To setup the project I used 2 tools: Xcodegen (https://github.com/yonaskolb/XcodeGen) and CocoaPods (https://cocoapods.org). The first one is used to generate the structure of an xcode project following a spec file (really useful to avoid merge conflits on the project file). The second one, is part of the requirements of the challenge and I use to keep track of the third party libraries.
 
-Once the project is cloned you don't need to follow any special step to setup the project, it should be ready to use. But if you want to try the project generation just call the Makefile:
+Once the project is cloned you don't need to follow any special step to setup the project, it should be ready to use. Just open the **TvMaze.xcworkspace** file. 
+But if you want to try the project generation just call the Makefile:
 
 ```shell
 $ make project
